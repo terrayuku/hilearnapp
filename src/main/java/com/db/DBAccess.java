@@ -50,22 +50,22 @@ public DataSource getDataSource() throws Exception{
  * @throws Exception 
  */
 private Connection getConnection() throws SQLException, URISyntaxException{
-Connection connection =null;
-try{
- connection = getDataSource().getConnection();
-}
-catch(Exception ex){
-    throw new SQLException("Database Connection Failed." + ex.getMessage());
-}
- return connection;
+//Connection connection =null;
+//try{
+// connection = getDataSource().getConnection();
+//}
+//catch(Exception ex){
+//    throw new SQLException("Database Connection Failed." + ex.getMessage());
+//}
+// return connection;
 
-//  URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
-//
-//  String username = dbUri.getUserInfo().split(":")[0];
-//  String password = dbUri.getUserInfo().split(":")[1];
-//  String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
-//
-//  return DriverManager.getConnection(dbUrl, username, password);
+  URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
+
+  String username = dbUri.getUserInfo().split(":")[0];
+  String password = dbUri.getUserInfo().split(":")[1];
+  String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
+
+  return DriverManager.getConnection(dbUrl, username, password);
 } 
 /**
  *  Closes all the database resources

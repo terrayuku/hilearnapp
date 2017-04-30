@@ -42,7 +42,8 @@ public class FileUpload extends HttpServlet {
     private static final int THRESHOLD_SIZE = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE = 1024 * 1024 * 140; // 140MB
     private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 150; // 150MB
-    private static final String UUID_STRING = "uuid";private static final String S3_BUCKET_NAME = System.getenv("S3_BUCKET_NAME");
+    private static final String UUID_STRING = "uuid";
+    private static final String S3_BUCKET_NAME = System.getenv("S3_BUCKET_NAME");
  
     private static final Logger LOGGER = Logger.getGlobal();
  
