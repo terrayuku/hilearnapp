@@ -27,13 +27,11 @@
   <body>
   <nav class="navbar navbar-default navbar-static-top navbar-inverse">
 	  <div class="container">
-      <div class="row" style="margin-top: 10px; color: white;">
-        <div class="col-xs-10">
-          <span style="font-size: 30px;">
-            <h3 style="color: #ffffff"> Hi-File Download</h3>
-          </span>
-        </div>
-      </div>
+      <section class="container">
+	    <jsp:include 
+      page="navigation.jsp?title=Hi-File Download&back=teacher_portal.jsp" />
+      <jsp:include page="username.jsp" />
+	  </section>
 	  </div>
 	</nav> <!-- End Nav Bar -->
 <main>
