@@ -44,7 +44,7 @@
   <main class="jumbotron">
   	<!-- Student Subject -->
 	<div class="registration">
-    <a href="fileUpload.jsp?class=<%= class_teacher.get(i) %>" >
+    <a href="teacher_subject.jsp?class=<%= class_teacher.get(i) %>" >
 		<div class="row">
 			<div class="col-xs-4"><span class="glyphicon glyphicon-blackboard"></span></div>
 			<div class="col-xs-4"><%= class_teacher.get(i) %></div>
