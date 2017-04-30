@@ -25,7 +25,7 @@ public class AWSUtils{
    * Credentials: temporal
    * later to be accessed straight from heroku
    */
-  private static final String AWS_ACCESS_KEY = System.getenv("AWS_ACCESS_KEY"); // "AKIAIUBADBISX272EWSQ";
+  private static final String AWS_ACCESS_KEY = System.getenv("AWS_ACCESS_KEY_ID"); // "AKIAIUBADBISX272EWSQ";
   private static final String AWS_SECRETE_KEY = System.getenv("AWS_SECRETE_KEY"); // "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";
   
   /**

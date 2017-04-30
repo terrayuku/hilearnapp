@@ -112,41 +112,29 @@ public class FileUpload extends HttpServlet {
             }
  
             if (itemFile != null) {
+              
               AWSUtils awsS3 = new AWSUtils();
-              awsS3.upload2S3(itemFile, S3_BUCKET_NAME, itemFile.getName());
-//              
-//                // get item inputstream to upload file into s3 aws
-// 
-//                BasicAWSCredentials awsCredentials = new BasicAWSCredentials(AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY);
-// 
-//                AmazonS3 s3client = new AmazonS3Client(awsCredentials);
-//                try {
-// 
-//                    ObjectMetadata om = new ObjectMetadata();
-//                    om.setContentLength(itemFile.getSize());
-//                    s3client.putObject(new PutObjectRequest(S3_BUCKET_NAME, "Notes/" + itemFile.getName() , itemFile.getInputStream(), om));
-//                    // save the path to the database to be used to download the uploaded file
-//                    s3client.setObjectAcl(S3_BUCKET_NAME, "Notes/" + itemFile.getName() , CannedAccessControlList.PublicRead);
-// 
-//                } catch (AmazonServiceException ase) {
-//                 
-//                    System.err.print(uuidValue + ":error:" + ase.getMessage());
-// 
-//                } catch (AmazonClientException ace) {
-//                    System.err.print(uuidValue + ":error:" + ace.getMessage());
-//                }
+              boolean isUploaded = awsS3.upload2S3(itemFile, S3_BUCKET_NAME, itemFile.getName());
+              
+              if(isUploaded) {
                 
                 // Load the fileUpload.jsp and send a success message
                 request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");
                 response.setStatus(response.SC_MOVED_TEMPORARILY);
                 response.setHeader("Location", "pages/fileUpload.jsp");
+                
+              } else {
+                System.err.print(":ERR: " + "Upload Failed");
+                response.setStatus(response.SC_MOVED_TEMPORARILY);
+                response.setHeader("Location", "pages/fileUpload.jsp");
+              }
  
             } else {
-                System.err.print(uuidValue + ":error:" + "No Upload file");
+                System.err.print("ERR: " + "No Upload file");
             }
  
         } catch (Exception ex) {
-            System.err.print(uuidValue + ":" + ":error: " + ex.getMessage());
+            System.err.print("ERR: " + ex.getMessage());
         }
         LOGGER.info(uuidValue + ":Upload done");
     }
