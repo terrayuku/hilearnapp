@@ -5,6 +5,7 @@ controllers\getStudent_Subject.class
 com\models\StudentModel.class
 controllers\Login.class
 com\models\Upload.class
+com\models\Teacher_Subject.class
 controllers\Admin.class
 controllers\School_Class.class
 controllers\CommentsController.class

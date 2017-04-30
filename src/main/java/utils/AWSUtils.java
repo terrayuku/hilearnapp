@@ -56,6 +56,7 @@ public class AWSUtils{
       s3Client.setObjectAcl(bucket, file.getName() , CannedAccessControlList.PublicRead);
       
       // save the path to the database to be used to download the uploaded file
+     
       return true;
       
     } catch(AmazonS3Exception as3e) {

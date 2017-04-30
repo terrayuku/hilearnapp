@@ -13,6 +13,7 @@ import com.models.SchoolAdminModel;
 import com.models.SchoolClass;
 import com.models.StudentModel;
 import com.models.Student_Subject;
+import com.models.Teacher_Subject;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.CallableStatement;
@@ -255,7 +256,8 @@ public List getSubject(String sub_name) throws URISyntaxException{
     return subject;
 }
 
-public List getStudent_Subject(String exam_num) throws URISyntaxException{
+public List getStudent_Subject(String exam_num) throws URISyntaxException
+{
     Connection conn = null;
     CallableStatement call = null;
     ResultSet res = null;
@@ -271,6 +273,34 @@ public List getStudent_Subject(String exam_num) throws URISyntaxException{
         call = conn.prepareCall("{call getStudent_Subject(?)}");
         //executing the procedure
         call.setString(1, exam_num);
+        res = call.executeQuery();
+        while(res.next()){
+          System.out.println(res.getString(1));
+            subject.add(res.getString(1));
+         }
+    }catch(SQLException sqle){
+        System.out.println("Subject Not Found!");
+        sqle.printStackTrace();
+    }
+    return subject;
+}
+
+public List getTeacher_Subject(String staff_num) throws URISyntaxException{
+    Connection conn = null;
+    CallableStatement call = null;
+    ResultSet res = null;
+    List subject = new ArrayList();
+    
+    try{
+            
+        //getting connection
+        conn = this.getConnection();
+        //auto commint false
+//      conn.setAutoCommit(false);
+        //calling a stored procedure createComment
+        call = conn.prepareCall("{call getTeacher_Subject(?)}");
+        //executing the procedure
+        call.setString(1, staff_num);
         res = call.executeQuery();
         while(res.next()){
           System.out.println(res.getString(1));
@@ -775,6 +805,43 @@ public boolean addStudent_Subject(Student_Subject stud_subj) throws Exception{
         }else{
             conn.rollback();
             System.out.println("Error occured while addig a studnet.");
+        }
+        
+   }catch(Exception exe){
+       System.err.println("Error While Adding Student");
+       exe.printStackTrace();
+   }
+   
+   return isAdded;
+}
+
+public boolean addTeacher_Subject(Teacher_Subject teacher_subject) throws Exception{
+   //to connect
+   Connection conn = null;
+   //to call stored statements
+   CallableStatement call = null;
+   boolean isAdded = false;
+   
+   try{
+   
+        //connecting to db
+        conn = this.getConnection();
+        //auto commit false
+        conn.setAutoCommit(false);
+        //calling stored statements
+        call = conn.prepareCall("{call addTeacher_Subject(?, ?)}");
+        //setting the parameters
+        call.setString(1, teacher_subject.getTeacher_num());
+        call.setString(2, teacher_subject.getSubject_name());
+        //ex
+        int status = call.executeUpdate();
+        
+        isAdded = status > 0;
+        if(isAdded){
+            conn.commit(); // persisting data
+        }else{
+            conn.rollback();
+            System.out.println("Error occured while addig a teacher subject.");
         }
         
    }catch(Exception exe){
