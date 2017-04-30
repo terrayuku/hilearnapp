@@ -83,7 +83,7 @@
   
   <section class="bg-dark">
     <!-- footer here -->
-    <jsp:include page="pages/footer.jsp" />
+    <jsp:include page="footer.jsp" />
   </section>
 </body>
 </html>
