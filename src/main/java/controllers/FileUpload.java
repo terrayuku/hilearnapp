@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,7 @@ import javax.servlet.http.Part;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
+import utils.AWSUtils;
 
 /**
  *
@@ -41,10 +42,7 @@ public class FileUpload extends HttpServlet {
     private static final int THRESHOLD_SIZE = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE = 1024 * 1024 * 140; // 140MB
     private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 150; // 150MB
-    private static final String UUID_STRING = "uuid";
-    private static final String AMAZON_ACCESS_KEY = "AKIAIUBADBISX272EWSQ"; // System.getenv("AWS_ACCESS_KEY");
-    private static final String AMAZON_SECRET_KEY = "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"; // System.getenv("AWS_SECRET_KEY");
-    private static final String S3_BUCKET_NAME = "hilearnfiles"; // System.getenv("S3_BUCKET_NAME");
+    private static final String UUID_STRING = "uuid";private static final String S3_BUCKET_NAME = System.getenv("S3_BUCKET_NAME");
  
     private static final Logger LOGGER = Logger.getGlobal();
  
@@ -113,26 +111,29 @@ public class FileUpload extends HttpServlet {
             }
  
             if (itemFile != null) {
-                // get item inputstream to upload file into s3 aws
- 
-                BasicAWSCredentials awsCredentials = new BasicAWSCredentials(AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY);
- 
-                AmazonS3 s3client = new AmazonS3Client(awsCredentials);
-                try {
- 
-                    ObjectMetadata om = new ObjectMetadata();
-                    om.setContentLength(itemFile.getSize());
-                    s3client.putObject(new PutObjectRequest(S3_BUCKET_NAME, "Notes/" + itemFile.getName() , itemFile.getInputStream(), om));
-                    // save the path to the database to be used to download the uploaded file
-                    s3client.setObjectAcl(S3_BUCKET_NAME, "Notes/" + itemFile.getName() , CannedAccessControlList.PublicRead);
- 
-                } catch (AmazonServiceException ase) {
-                 
-                    System.err.print(uuidValue + ":error:" + ase.getMessage());
- 
-                } catch (AmazonClientException ace) {
-                    System.err.print(uuidValue + ":error:" + ace.getMessage());
-                }
+              AWSUtils awsS3 = new AWSUtils();
+              awsS3.upload2S3(itemFile, S3_BUCKET_NAME, itemFile.getName());
+//              
+//                // get item inputstream to upload file into s3 aws
+// 
+//                BasicAWSCredentials awsCredentials = new BasicAWSCredentials(AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY);
+// 
+//                AmazonS3 s3client = new AmazonS3Client(awsCredentials);
+//                try {
+// 
+//                    ObjectMetadata om = new ObjectMetadata();
+//                    om.setContentLength(itemFile.getSize());
+//                    s3client.putObject(new PutObjectRequest(S3_BUCKET_NAME, "Notes/" + itemFile.getName() , itemFile.getInputStream(), om));
+//                    // save the path to the database to be used to download the uploaded file
+//                    s3client.setObjectAcl(S3_BUCKET_NAME, "Notes/" + itemFile.getName() , CannedAccessControlList.PublicRead);
+// 
+//                } catch (AmazonServiceException ase) {
+//                 
+//                    System.err.print(uuidValue + ":error:" + ase.getMessage());
+// 
+//                } catch (AmazonClientException ace) {
+//                    System.err.print(uuidValue + ":error:" + ace.getMessage());
+//                }
                 
                 // Load the fileUpload.jsp and send a success message
                 request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");

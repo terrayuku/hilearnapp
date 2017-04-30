@@ -26,6 +26,7 @@ com\models\SchoolClass.class
 controllers\Subject.class
 com\models\ClassTeacher.class
 com\db\DbTester.class
+utils\AWSUtils.class
 controllers\Controller.class
 com\db\DBAccess.class
 com\models\Chat.class
