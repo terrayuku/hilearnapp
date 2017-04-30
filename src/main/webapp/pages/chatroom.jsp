@@ -18,43 +18,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=9">
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-  <script type="text/javascript" src="../js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/main.css" />
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
-
-	<title>Registration</title>
+ <jsp:include page="header.jsp?title=Chatroom" />
 </head>
 <!-- Body -->
 <body>
 	<!-- Nav Bar -->
-	<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-	  <div class="container">
-      <div class="row" style="margin-top: 5px;">
-        <div class="col-xs-1" >
-          <a href="contents.jsp?subject=<%= request.getParameter("subject") %>">
-            <span style="font-size: 16px;" class="glyphicon glyphicon-chevron-left">
-            </span>
-          </a>
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid bg-dark">
+          <% request.getParameter("subject") %>
+          <jsp:include page="navigation.jsp?title=Admin Dashboard&back=contents.jsp" />
         </div>
-        <div class="col-xs-10">
-          <span style="font-size: 16px; color: white;">
-            Peer Help: <%= request.getParameter("subject") %>
-          </span>
-        </div>
-        <div class="col-xs-1">
-          <a href="../Logout">
-            <span style="font-size: 16px;" class="glyphicon glyphicon-log-out">
-            </span>
-          </a>
-        </div>
-      </div>
-      <jsp:include page="username.jsp" />
-	  </div>
-	</nav> <!-- End Nav Bar -->
+        
+        <!-- /.container-fluid -->
+    </nav>
        
      <%
     DBAccess db = new DBAccess();
@@ -120,9 +96,9 @@
 <script type="text/javascript" src="../js/bootstrap.js"></script>
   </div>
     </main> 
-   <section>
+   <section class="bg-dark">
     <!-- footer here -->
-    <jsp:include page="footer.jsp" />
-  </section> 
+    <jsp:include page="pages/footer.jsp" />
+  </section>
 </body>
 </html>

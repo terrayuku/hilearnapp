@@ -8,15 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=9">
-  <meta name="viewport" content="width=device-width; initial-scale=1"/>
-	  
-  <link rel="stylesheet" type="text/css" href="../css/main.css" />
-  <script type="text/javascript" src="../js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
-  
-  <title>Teachers Class</title>
+  <jsp:include page="header.jsp?title=Teachers Class" />
 </head>
 <!-- Body -->
 <body>
@@ -65,10 +57,9 @@
       </div>
     </center>
   </main>
-   <section>
+   <section class="bg-dark">
     <!-- footer here -->
-    <jsp:include page="footer.jsp" />
-  </section> 
-<script type="text/javascript" src="../js/bootstrap.js"></script>
+    <jsp:include page="pages/footer.jsp" />
+  </section>
 </body>
 </html>

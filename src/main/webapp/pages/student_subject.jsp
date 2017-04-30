@@ -8,26 +8,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=9">
-  <meta name="viewport" content="width=device-width; initial-scale=1"/>
-	  
-  <link rel="stylesheet" type="text/css" href="../css/main.css" />
-  <script type="text/javascript" src="../js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
-  
-  <title>Student Subject</title>
+  <jsp:include page="header.jsp?title=Add Subject" />
 </head>
 <!-- Body -->
 <body>
 	<!-- Nav Bar -->
-	<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-	  <div class="container">
-	    <jsp:include 
-        page="navigation.jsp?title=Add Subject&back=student.jsp" />
-      <jsp:include page="username.jsp" />
-	  </div>
-	</nav> <!-- End Nav Bar -->
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid bg-dark">
+          <jsp:include page="navigation.jsp?title=Add Subject&back=student.jsp" />
+        </div>
+        <!-- /.container-fluid -->
+    </nav> <!-- End Nav Bar -->
 
   <main class="jumbotron">
     <center>
@@ -64,10 +55,9 @@
     </center>
   </main>
   
-   <section>
+  <section class="bg-dark">
     <!-- footer here -->
-    <jsp:include page="footer.jsp" />
-  </section>  
-<script type="text/javascript" src="../js/bootstrap.js"></script>
+    <jsp:include page="pages/footer.jsp" />
+  </section>
 </body>
 </html>

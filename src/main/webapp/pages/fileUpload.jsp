@@ -8,24 +8,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
-    <title>Hi-File Upload</title>
+    <jsp:include page="header.jsp?title=Hi-File Upload" />
   </head>
   <body>
-  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
-	  <div class="container">
-      <section class="container">
-	    <jsp:include 
-      page="navigation.jsp?title=Hi-File Upload&back=teacher_portal.jsp" />
-      <jsp:include page="username.jsp" />
-	  </section>
-	  </div>
-	</nav> <!-- End Nav Bar -->
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid bg-dark">
+          <jsp:include page="navigation.jsp?title=Hi-File Upload&back=teacher_portal.jsp" />
+        </div>
+        <!-- /.container-fluid -->
+    </nav> <!-- End Nav Bar -->
 <main>
 <div class="container-login">
     <div class="row">
@@ -58,9 +49,9 @@
     </div>
 </div>
 </main>
-<section>
+<section class="bg-dark">
     <!-- footer here -->
-    <jsp:include page="../pages/footer.jsp" />
-</section> 
+    <jsp:include page="pages/footer.jsp" />
+  </section>
   </body>
 </html>

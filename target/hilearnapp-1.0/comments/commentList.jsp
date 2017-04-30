@@ -19,9 +19,9 @@
     </head>
     <body>
         <!-- Nav Bar -->
-	<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-	  <div class="container">
-	    <ul class="nav navbar-nav">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid bg-dark">
+          <ul class="nav navbar-nav">
 	      <li >
 	        <a href="../pages/contents.jsp"><span class="glyphicon glyphicon-chevron-left"></span> </a>
 	      </li>
@@ -38,8 +38,9 @@
 	        <a href="#"><span class="glyphicon glyphicon-search"></span></a>
 	      </li>
 	    </ul>
-	  </div>
-	</nav> <!-- End Nav Bar -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav><!-- End Nav Bar -->
   <main class="jumbotron">
         <div class="panel panel-info">
             <div class="panel-heading">Post a Question</div>
@@ -57,6 +58,9 @@
             <script>
                 CKEDITOR.replace('comment');
             </script>
-            
+            <section class="bg-dark">
+    <!-- footer here -->
+    <jsp:include page="pages/footer.jsp" />
+  </section>
     </body>
 </html>

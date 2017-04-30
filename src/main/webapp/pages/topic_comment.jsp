@@ -10,10 +10,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <title><%= request.getParameter("subject") %></title>
-      <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
-      <script type="text/javascript" src="../js/bootstrap.js"></script>
-      <link rel="stylesheet" type="text/css" href="../css/main.css" />
-      <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+      <jsp:include page="header.jsp?" />
     </head>
   <body>
         <!-- Nav Bar -->
@@ -57,10 +54,10 @@
             </div>
         </div>
   </main>
-        <section>
+  <section class="bg-dark">
     <!-- footer here -->
-    <jsp:include page="footer.jsp" />
-  </section>  
+    <jsp:include page="pages/footer.jsp" />
+  </section>
             <script>
                 CKEDITOR.replace('comment');
             </script>
