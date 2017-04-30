@@ -45,7 +45,7 @@
   <main class="jumbotron">
   	<!-- Student Subject -->
 	<section class="registration">
-    <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>subject=<%= teacher_subject.get(i) %>" >
+    <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= teacher_subject.get(i) %>" >
 		<div class="row">
 			<div class="col-xs-4"><span class="glyphicon glyphicon-book"></span></div>
 			<div class="col-xs-4"><%= teacher_subject.get(i) %></div>
