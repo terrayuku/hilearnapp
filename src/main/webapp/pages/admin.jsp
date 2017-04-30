@@ -23,7 +23,7 @@
       <a href="teacher.jsp">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-4x fa-book text-primary sr-icons"></i>
+            <i class="fa fa-4x fa-user text-primary sr-icons"></i>
               <h3>Teacher</h3>
           </div>
         </div>
@@ -31,7 +31,7 @@
       <a href="student.jsp">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-4x fa-book text-primary sr-icons"></i>
+            <i class="fa fa-4x fa-user-md text-primary sr-icons"></i>
               <h3>Student</h3>
           </div>
         </div>
@@ -39,7 +39,7 @@
       <a href="newclass.jsp">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-4x fa-book text-primary sr-icons"></i>
+            <i class="fa fa-4x fa-windows text-primary sr-icons"></i>
               <h3>New Class</h3>
           </div>
         </div>
