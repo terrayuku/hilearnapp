@@ -23,6 +23,8 @@
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
 
+  <section class="container">
+    <div class="row">
   <%
     DBAccess db = new DBAccess();
     System.out.println((String)session.getAttribute("id"));
@@ -32,8 +34,6 @@
       for(int i = 0; i < class_teacher.size(); i++) {
         
   %>
-  <div class="container">
-    <div class="row">
   	<!-- Student Subject -->
       <a href="teacher_subject.jsp?class=<%= class_teacher.get(i) %>">
         <div class="col-lg-3 col-md-6 text-center">
@@ -52,16 +52,15 @@
           <div class="service-box">
             <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
               <h3>No Class</h3>
-              <p class="text-center">Please contact your school admin to add a class for you.</p>
+              <p class="text-faded">Please contact your school admin to add a class for you.</p>
           </div>
         </div>
     </div>
-  </div>
+  
   <%
     }
    %>
-  </main>
-   
+ </section>
   <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
