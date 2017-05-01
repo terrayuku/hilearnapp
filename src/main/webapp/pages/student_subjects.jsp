@@ -22,7 +22,9 @@
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
-
+  	<!-- Student Subject -->
+	<section class="container">
+    <div class="row">
   <%
     DBAccess db = new DBAccess();
     System.out.println((String)session.getAttribute("id"));
@@ -33,9 +35,7 @@
       for(int i = 0; i < student_subject.size(); i++) {
         
   %>
-  	<!-- Student Subject -->
-	<section class="container">
-    <div class="row">
+
       <a href="contents.jsp?subject=<%= student_subject.get(i) %>" >
           <div class="col-lg-3 col-md-6">
             <div class="service-box">
