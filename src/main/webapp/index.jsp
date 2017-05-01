@@ -36,7 +36,7 @@
                         <a class="page-scroll" href="#services">Services</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#profile">Profile</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -119,6 +119,23 @@
                         <p class="text-muted">With Eastern Cape bad Matric Results, we love to solve
                         the problem.</p>
                     </div>
+                </div>
+            </div>
+          <a href="#profile" 
+             class="page-scroll btn btn-default btn-xl sr-button">
+            Company Profile
+          </a>
+        </div>
+    </section>
+  
+    <section class="bg-primary" id="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Efinovation (Pty) Ltd.</h2>
+                    <hr class="light">
+                    <p class="text-center"></p>
+                    <a href="#contact" class="page-scroll btn btn-default btn-xl sr-button">Get In Touch!</a>
                 </div>
             </div>
         </div>
