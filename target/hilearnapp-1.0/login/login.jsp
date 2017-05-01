@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
-              <form name="file" method="POST" action="../Login" enctype="multipart/form-data">
+              <form method="POST" action="../Login">
                 <h4>Login to Continue</h4>
                       <input type="text" name="username" class="form-control input-sm chat-input" placeholder="Username" />
                       </br>
