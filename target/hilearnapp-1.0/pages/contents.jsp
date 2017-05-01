@@ -24,46 +24,51 @@
 	<section class="container">
 		<div class="row">
 			<a href="#">
-				<div class="col-xs-11 post-item">
-					<span class="glyphicon glyphicon-file"></span>
-					<span>Notes</span><br />
-					<span class=""></span>
+				<div class="col-xs-11">
+          <div class="service-box">
+            <i class="glyphicon glyphicon-file fa-4x text-primary sr-icons"></i>
+              <h3>Notes</h3>
+          </div>
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
       
 			<a href="#">
 				<div class="col-xs-11 post-item">
-					<span class="glyphicon glyphicon-folder-open"></span>
-					<span>Previous Question Papers</span><br />
-					<span class=""></span>
+					<div class="service-box">
+            <i class="glyphicon glyphicon-folder-open fa-4x text-primary sr-icons"></i>
+              <h3>Previous Question Papers</h3>
+          </div>
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
       
 			<a href="#">
 				<div class="col-xs-11 post-item">
-					<span class="glyphicon glyphicon-book"></span>
-					<span>Study Guides</span><br />
-					<span class=""></span>
+					<div class="service-box">
+            <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
+              <h3>Study Guides</h3>
+          </div>
 				</div>
 				<!--<div class="col-xs-2"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
       
 			<a href="#">
 				<div class="col-xs-11 post-item">
-					<span class="glyphicon glyphicon-share"></span>
-					<span>Exercise & Solution</span><br />
-					<span class=""></span>
+					<div class="service-box">
+            <i class="glyphicon glyphicon-share fa-4x text-primary sr-icons"></i>
+              <h3>Exercise & Solution</h3>
+          </div>
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
       
       <a href="chatroom.jsp?subject=<%= request.getParameter("subject") %>">
 				<div class="col-xs-11 post-item">
-					<span class="glyphicon glyphicon-comment"></span>
-					<span>Peer Help</span><br />
-					
+					<div class="service-box">
+            <i class="glyphicon glyphicon-comment fa-4x text-primary sr-icons"></i>
+              <h3>Peer Help</h3>
+          </div>
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
