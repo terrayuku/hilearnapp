@@ -122,10 +122,14 @@
                 </div>
             </div>
           <div class="container">
-            <a href="#profile" 
-               class="page-scroll btn btn-default btn-xl sr-button">
-              Company Profile
-            </a>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="#profile" 
+                      class="page-scroll btn btn-default btn-xl sr-button">
+                     Company Profile
+                   </a>
+                </div>
+            </div>
           </div>
         </div>
     </section>
