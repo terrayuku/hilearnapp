@@ -60,9 +60,6 @@
     }
    %>
 	</section>
-<%
-    }
-   %>
 	
   <section class="bg-dark">
     <!-- footer here -->
