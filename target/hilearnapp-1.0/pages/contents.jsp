@@ -20,9 +20,8 @@
         <!-- /.container-fluid -->
     </nav>
 
-  <main class="jumbotron">
 	<!-- Teacher Registration -->
-	<div class="post">
+	<section class="container">
 		<div class="row">
 			<a href="#">
 				<div class="col-xs-11 post-item">
@@ -75,8 +74,7 @@
 			</a>
 		</div>
 				
-	</div>
-  </main>
+	</section>
 	<section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
