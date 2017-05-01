@@ -31,8 +31,7 @@
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
-		</div>
-		<div class="row">
+      
 			<a href="#">
 				<div class="col-xs-11 post-item">
 					<span class="glyphicon glyphicon-folder-open"></span>
@@ -41,8 +40,7 @@
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
-		</div>
-		<div class="row">
+      
 			<a href="#">
 				<div class="col-xs-11 post-item">
 					<span class="glyphicon glyphicon-book"></span>
@@ -51,9 +49,7 @@
 				</div>
 				<!--<div class="col-xs-2"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
-		</div>
-		
-		<div class="row">
+      
 			<a href="#">
 				<div class="col-xs-11 post-item">
 					<span class="glyphicon glyphicon-share"></span>
@@ -62,8 +58,7 @@
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
-		</div>
-		<div class="row">
+      
       <a href="chatroom.jsp?subject=<%= request.getParameter("subject") %>">
 				<div class="col-xs-11 post-item">
 					<span class="glyphicon glyphicon-comment"></span>
@@ -72,7 +67,8 @@
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
-		</div>
+        
+    </div>
 				
 	</section>
 	<section class="bg-dark">
