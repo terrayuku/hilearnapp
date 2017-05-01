@@ -44,8 +44,6 @@
             </div>
           </div>
       </a>
-    </div>
-	</section>
   <%
       }
     } else {
@@ -61,6 +59,7 @@
   <%
     }
    %>
+    </div>
 	</section>
 	
   <section class="bg-dark">
