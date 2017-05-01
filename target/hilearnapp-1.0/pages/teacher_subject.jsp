@@ -43,13 +43,13 @@
       </div>
 		</div>	
 		</a>		
-	
+  </section>
   <%
       }
     } else {
       session.setAttribute("subject", "No Subjects");
   %>
-  
+  <section class="container">
   <div class="service-box">
     <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
       <h3>No Subject</h3>
