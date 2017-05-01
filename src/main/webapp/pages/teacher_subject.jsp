@@ -38,7 +38,7 @@
     <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= teacher_subject.get(i) %>" >
 		<div class="row">
       <div class="service-box">
-        <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
+        <i class="glyphicon glyphicon-book fa-4x text-center sr-icons"></i>
         <h3><%= teacher_subject.get(i) %></h3>
       </div>
 		</div>	
