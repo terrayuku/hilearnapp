@@ -121,10 +121,12 @@
                     </div>
                 </div>
             </div>
-          <a href="#profile" 
-             class="page-scroll btn btn-default btn-xl sr-button">
-            Company Profile
-          </a>
+          <div class="container">
+            <a href="#profile" 
+               class="page-scroll btn btn-default btn-xl sr-button">
+              Company Profile
+            </a>
+          </div>
         </div>
     </section>
   
