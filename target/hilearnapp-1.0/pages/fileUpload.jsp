@@ -36,10 +36,10 @@
                 <input type="file" name="uploadFile" class="form-control input-sm" />
                 </br>
                 <input type="text" name="desc" class="form-control input-sm chat-input" placeholder="Describe this file" />
-             
+                <br />
                 <div class="wrapper">
                 <span class="group-btn">     
-                    <input type="submit" class="btn btn-primary btn-md" value="Upload">
+                  <input type="submit" class="btn btn-primary btn-md" value="Upload">
                 </span>
                   <button name="login_lost_btn" type="button" class="btn btn-link">Cancel</button>
                 </div>
