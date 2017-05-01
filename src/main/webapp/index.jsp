@@ -126,7 +126,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="#profile" 
-                      class="page-scroll btn btn-default btn-xl text-primary sr-button">
+                      class="page-scroll btn btn-primary btn-xl sr-button">
                      Company Profile
                    </a>
                 </div>
