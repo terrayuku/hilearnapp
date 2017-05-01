@@ -17,7 +17,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
-<main>
+<section class="container">
 <div class="container-login">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
@@ -48,7 +48,7 @@
         </div>
     </div>
 </div>
-</main>
+</section>
 <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
