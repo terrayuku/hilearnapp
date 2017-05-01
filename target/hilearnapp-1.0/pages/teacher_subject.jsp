@@ -33,25 +33,34 @@
       for(int i = 0; i < teacher_subject.size(); i++) {
         
   %>
-  <main class="jumbotron">
   	<!-- Student Subject -->
-	<section class="registration">
+	<section class="container">
     <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= teacher_subject.get(i) %>" >
 		<div class="row">
-			<div class="col-xs-4"><span class="glyphicon glyphicon-book"></span></div>
-			<div class="col-xs-4"><%= teacher_subject.get(i) %></div>
-			<div class="col-xs-4"><span class="glyphicon glyphicon-chevron-right"></span></div>
+      <div class="service-box">
+        <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
+        <h3><%= teacher_subject.get(i) %></h3>
+      </div>
 		</div>	
 		</a>		
-	</section>
+	
   <%
       }
     } else {
       session.setAttribute("subject", "No Subjects");
+  %>
+  
+  <div class="service-box">
+    <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
+      <h3>No Subject</h3>
+      <p class="text-faded">Please upload study materials.</p>
+      <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= request.getParameter("class") %>"
+         class="page-scroll btn btn-default btn-xl sr-button"> Click to Upload</a>
+  </div>
+  <%
     }
    %>
-	
-  </main>
+	</section>
   <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
