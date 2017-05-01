@@ -50,12 +50,12 @@
       session.setAttribute("subject", "No Subjects");
   %>
   <section class="container">
-  <div class="service-box">
+  <div class="service-box text-center">
     <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
       <h3>No Subject</h3>
-      <p class="text-faded">Please upload study materials.</p>
+      <p class="text-center">Please upload study materials.</p>
       <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= request.getParameter("class") %>"
-         class="page-scroll btn btn-default btn-xl sr-button"> Click to Upload</a>
+         class="page-scroll btn btn-default btn-xl sr-button text-primary"> Click to Upload</a>
   </div>
   <%
     }
