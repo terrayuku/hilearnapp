@@ -33,7 +33,7 @@
       for(int i = 0; i < teacher_subject.size(); i++) {
         
   %>
-  	<!-- Student Subject -->
+  	<!-- Teacher Subject -->
 	<section class="container">
     <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= teacher_subject.get(i) %>" >
 		<div class="row">

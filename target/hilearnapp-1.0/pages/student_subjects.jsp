@@ -35,14 +35,14 @@
   %>
   	<!-- Student Subject -->
 	<section class="container">
-    <a href="contents.jsp?subject=<%= student_subject.get(i) %>" >
       <div class="row">
-        <div class="service-box text-center">
-    <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
-      <h3><%= student_subject.get(i) %></h3>
-  </div>
+        <a href="contents.jsp?subject=<%= student_subject.get(i) %>" >
+          <div class="service-box text-center">
+          <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
+            <h3><%= student_subject.get(i) %></h3>
+          </div>
+        </a>
       </div>
-      </a>
 
 	</section>
   <%
