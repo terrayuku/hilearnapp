@@ -37,12 +37,10 @@
 	<section class="container">
     <a href="contents.jsp?subject=<%= student_subject.get(i) %>" >
       <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="glyphicon glyphicon-book text-primary sr-icons"></i>
-              <h3><%= student_subject.get(i) %></h3>
-          </div>
-        </div>
+        <div class="service-box text-center">
+    <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
+      <h3><%= student_subject.get(i) %></h3>
+  </div>
       </div>
       </a>
 
@@ -53,15 +51,14 @@
       session.setAttribute("subject", "No Subjects");
 %>
 <section class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="glyphicon glyphicon-book text-primary sr-icons"></i>
-              <h3>No Subject</h3>
-              <p class="text-faded">Notify your teacher to add documents.</p>
-          </div>
-        </div>
-      </div>
+  <div class="service-box text-center">
+    <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
+      <h3>No Subject</h3>
+      <p class="text-center">Please notify your teacher to add documents.</p>
+  </div>
+  <%
+    }
+   %>
 	</section>
 <%
     }
