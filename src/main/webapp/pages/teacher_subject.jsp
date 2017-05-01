@@ -26,8 +26,8 @@
   <%
     DBAccess db = new DBAccess();
     System.out.println((String)session.getAttribute("id"));
-    ArrayList teacher_subject = (ArrayList)db.getTeacher_Subject("456");
-      System.out.println("Get: " + db.getTeacher_Subject("456"));
+    ArrayList teacher_subject = (ArrayList)db.getTeacher_Subject((String)session.getAttribute("id"));
+      
     if(!teacher_subject.isEmpty()) {
       System.out.println(teacher_subject);
       for(int i = 0; i < teacher_subject.size(); i++) {
