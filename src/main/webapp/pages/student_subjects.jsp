@@ -33,25 +33,40 @@
       for(int i = 0; i < student_subject.size(); i++) {
         
   %>
-  <main class="jumbotron">
   	<!-- Student Subject -->
-	<section class="registration">
+	<section class="container">
     <a href="contents.jsp?subject=<%= student_subject.get(i) %>" >
-		<div class="row">
-			<div class="col-xs-4"><span class="glyphicon glyphicon-book"></span></div>
-			<div class="col-xs-4"><%= student_subject.get(i) %></div>
-			<div class="col-xs-4"><span class="glyphicon glyphicon-chevron-right"></span></div>
-		</div>	
-		</a>		
+      <div class="row">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box">
+            <i class="glyphicon glyphicon-book text-primary sr-icons"></i>
+              <h3><%= student_subject.get(i) %></h3>
+          </div>
+        </div>
+      </div>
+      </a>
+
 	</section>
   <%
       }
     } else {
       session.setAttribute("subject", "No Subjects");
+%>
+<section class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box">
+            <i class="glyphicon glyphicon-book text-primary sr-icons"></i>
+              <h3>No Subject</h3>
+              <p class="text-faded">Notify your teacher to add documents.</p>
+          </div>
+        </div>
+      </div>
+	</section>
+<%
     }
    %>
 	
-  </main>
   <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
