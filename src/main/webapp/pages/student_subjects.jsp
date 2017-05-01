@@ -51,11 +51,12 @@
     } else {
       session.setAttribute("subject", "No Subjects");
 %>
-<section class="container">
+  <div class="col-lg-3 col-md-6">
   <div class="service-box text-center">
     <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
       <h3>No Subject</h3>
       <p class="text-center">Please notify your teacher to add documents.</p>
+  </div>
   </div>
   <%
     }
