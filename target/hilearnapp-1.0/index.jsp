@@ -121,7 +121,8 @@
                     </div>
                 </div>
             </div>
-          <div class="container">
+        </div>
+        <div class="container bg-primary">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="#profile" 
@@ -131,7 +132,6 @@
                 </div>
             </div>
           </div>
-        </div>
     </section>
   
     <section class="bg-primary" id="profile">
