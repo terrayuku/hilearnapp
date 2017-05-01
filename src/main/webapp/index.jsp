@@ -125,8 +125,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#profile" 
-                      class="page-scroll btn btn-primary btn-xl sr-button">
+                    <a href="#profile" class="btn btn-primary btn-xl page-scroll">
                      Company Profile
                    </a>
                 </div>
