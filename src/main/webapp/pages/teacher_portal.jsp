@@ -32,21 +32,32 @@
       for(int i = 0; i < class_teacher.size(); i++) {
         
   %>
-  <main class="jumbotron">
+  <div class="container">
+    <div class="row">
   	<!-- Student Subject -->
-	<div class="registration">
-    <a href="teacher_subject.jsp?class=<%= class_teacher.get(i) %>" >
-		<div class="row">
-			<div class="col-xs-4"><span class="glyphicon glyphicon-blackboard"></span></div>
-			<div class="col-xs-4"><%= class_teacher.get(i) %></div>
-			<div class="col-xs-4"><span class="glyphicon glyphicon-chevron-right"></span></div>
-		</div>	
-		</a>		
-	</div>
+      <a href="teacher_subject.jsp?class=<%= class_teacher.get(i) %>">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box">
+            <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
+              <h3><%= class_teacher.get(i) %></h3>
+          </div>
+        </div>
+      </a>
   <%
       }
     } else {
       session.setAttribute("subject", "No Class");
+  %>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box">
+            <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
+              <h3>No Class</h3>
+              <p class="text-center">Please contact your school admin to add a class for you.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <%
     }
    %>
   </main>
