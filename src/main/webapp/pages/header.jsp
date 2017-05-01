@@ -6,7 +6,7 @@
     <meta name="author" content="">
 
     <title><%= request.getParameter("title") %></title>
-
+    <link rel="icon" type="image/jpg" href="../img/ICON.jpg" sizes="96x96">
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
