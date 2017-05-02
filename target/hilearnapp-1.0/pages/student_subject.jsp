@@ -38,9 +38,10 @@
             <select name="sub_name" class="form-control input-sm chat-input">
               <option value="Life Science">Life Science</option>
               <option value="Math">Math</option>
-            </select>
+            </select><br />
               
           <input class="btn btn-primary" type="submit" name="submit" value="Add" />
+          <input class="btn btn-default" type="reset" name="reset" value="Reset" />
         </form>
       </div>
       </div>
