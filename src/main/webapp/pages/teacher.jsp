@@ -20,23 +20,29 @@
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
 
-  <main>
     <!-- Teacher Registration -->
-    <section class="container jumbotron">
+  <section class="container">
     <div class="row">
-      <div class="col-xs-11">
-        <a href="newteacher.jsp" class="btn btn-primary registration">New Teacher</a>
+      
+      <div class="service-box">
+        <div class="col-lg-3 col-md-6 text-center">
+          <a href="newteacher.jsp" class="btn btn-primary registration">New Teacher</a>
+        </div>
       </div>
-			<div class="col-xs-11">
+      
+			<div class="service-box">
+        <div class="col-lg-3 col-md-6 text-center">
         <a href="class_teacher.jsp" class="btn btn-primary registration">Assign Class</a>
+        </div>
       </div>
-			<div class="col-xs-11">
-        <a href="#" class="btn btn-danger registration">Delete Teacher</a>
+      
+			<div class="service-box">
+        <div class="col-lg-3 col-md-6 text-center">
+          <a href="#" class="btn btn-danger registration">Delete Teacher</a>
+        </div>
       </div>
 		</div>
-    </section>
-  </main>
-  
+  </section>
   <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
