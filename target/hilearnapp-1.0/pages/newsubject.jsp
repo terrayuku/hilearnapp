@@ -27,11 +27,11 @@
           <h4 class="text-center text-primary">Add Subject</h4>
         <form method="POST" action="../Subject" >
           <input type='text' class="form-control input-sm chat-input"
-                 name="subj_name"	placeholder='Math'/><br/>
+                 name="subj_name"	placeholder='Subject Name'/><br/>
           <input type='text' class="form-control input-sm chat-input"
-                 name="subj_desc" placeholder='Math Grade 10'/><br/>
+                 name="subj_desc" placeholder='Subject Description'/><br/>
           <input type='text' class="form-control input-sm chat-input"
-                 name="subj_outline" placeholder='Math Grade 10'/><br/>
+                 name="subj_outline" placeholder='Subject Outline'/><br/>
           <select name="subj_teacher" class="form-control input-sm chat-input">
             <option value="456">Byte</option>
             <option value="5632">Ben</option>
