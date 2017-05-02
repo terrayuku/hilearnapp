@@ -25,21 +25,23 @@
     <div class="row">
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
+          <h4 class="text-center text-primary">Add New Student</h4>
         <form method="POST" action="../Student" >
           <input type='text' class="form-control input-sm chat-input" 
-                 name="exam_number"	placeholder='Exam Number'/><br/>
+                 name="exam_number"	placeholder='Exam Number' required=""/><br/>
           <input type='text' class="form-control input-sm chat-input" 
-                 name="fname" placeholder='Name'/><br/>
+                 name="fname" placeholder='Name' required=""/><br/>
           <input type='text' class="form-control input-sm chat-input" 
-                 name="lname" placeholder='Surname'/><br/>
+                 name="lname" placeholder='Surname' required=""/><br/>
           <input type='email' class="form-control input-sm chat-input" 
-                 name="email" placeholder='Email'/><br/>
+                 name="email" placeholder='Email' required=""/><br/>
           <input type='password' class="form-control input-sm chat-input" 
-                 name="password" placeholder='Default Password'/><br/>
+                 name="password" placeholder='Default Password: student 
+                 will change it on their first login' required=""/><br/>
           <input type='text' class="form-control input-sm chat-input" 
-                 name="grade" placeholder='Grade'/><br/>
+                 name="grade" placeholder='Grade' required=""/><br/>
           <input type='text' class="form-control input-sm chat-input" 
-                 name="phone" placeholder='Phone Number'/><br/>
+                 name="phone" placeholder='Phone Number' required=""/><br/>
           
           <input class="btn btn-primary" type="submit" name="submit" value="Add Student" />
         </form>
