@@ -29,17 +29,22 @@
         <form method="POST" action="../Student" >
           <input type='text' class="form-control input-sm chat-input" 
                  name="exam_number"	placeholder='Exam Number' required=""/><br/>
+          
           <input type='text' class="form-control input-sm chat-input" 
                  name="fname" placeholder='Name' required=""/><br/>
+          
           <input type='text' class="form-control input-sm chat-input" 
                  name="lname" placeholder='Surname' required=""/><br/>
+          
           <input type='email' class="form-control input-sm chat-input" 
                  name="email" placeholder='Email' required=""/><br/>
+          
           <input type='password' class="form-control input-sm chat-input" 
-                 name="password" placeholder='Default Password: student 
-                 will change it on their first login' required=""/><br/>
+                 name="password" placeholder='Default Password: to be changed' required=""/><br/>
+          
           <input type='text' class="form-control input-sm chat-input" 
                  name="grade" placeholder='Grade' required=""/><br/>
+          
           <input type='text' class="form-control input-sm chat-input" 
                  name="phone" placeholder='Phone Number' required=""/><br/>
           
