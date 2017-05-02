@@ -4,6 +4,12 @@
     Author     : TerraByte
 --%>
 
+<%@page import="com.models.Clas"%>
+<%@page import="com.models.Teacher"%>
+<%@page import="com.models.Teacher"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.db.DBAccess"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -28,18 +34,44 @@
           <form method="POST" action="../Teacher" >
             <h4 class="text-primary">Assign Teacher to a Class</h4>
             <h4 class="text-success">Name</h4>
-              <select name="staff_num" class="form-control input-sm chat-input" >
-                <option value="456">Byte</option>
-                <option value="5632">Ben</option>
-              </select>
-            <br />
+            <select name="staff_num" class="form-control input-sm chat-input" >
+              <%
+            DBAccess db = new DBAccess();
+            List<Teacher> teachers = (ArrayList<Teacher>)db.getAllTeachers();
+            
+            for(Teacher t: teachers) {
+              if(t != null) {
+           %>
+            <option value=<%= t.getStaff_num() %> ><%= t.getFirst_name() %> <%= t.getLast_name() %></option>
+           <%
+             } else {
+            %>
+            <option value="No Teacher">No Teachers</option>
+            <%
+              }
+            }
+           %>
+          </select><br/>   
             
             <h4 class="text-success">Class</h4>
               <select name="class_name" class="form-control input-sm chat-input" >
-                <option value="10A">10A</option>
-                <option value="10B">10B</option>
-              </select>
-            <br/>
+                <%
+            DBAccess dbClass = new DBAccess();
+            List<Clas> clas = (ArrayList<Clas>)dbClass.getAllTeachers();
+            
+            for(Clas c: clas) {
+              if(c != null) {
+           %>
+            <option value=<%= c.getClass_name() %> ><%= c.getClass_name() %></option>
+           <%
+             } else {
+            %>
+            <option value="No Class">No Class</option>
+            <%
+              }
+            }
+           %>
+          </select><br/> 
           <input class="btn btn-primary" type="submit" 
                  name="submit" value="Assign Class" />
         </form>

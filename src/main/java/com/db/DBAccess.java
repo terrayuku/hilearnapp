@@ -5,6 +5,7 @@ import com.models.AddSubject;
 import com.models.Upload;
 import com.models.AdminMaker;
 import com.models.Chat;
+import com.models.Clas;
 import com.models.ClassTeacher;
 import com.models.Comment;
 import com.models.Comments;
@@ -152,6 +153,32 @@ public List getAllTeachers() throws URISyntaxException{
           }
         }catch(SQLException sqle){
             System.out.println("No teacher found");
+            sqle.printStackTrace();
+        }
+        return admin;
+}
+
+public List getAllClasses() throws URISyntaxException{
+     Connection conn = null;
+        CallableStatement call = null;
+        ResultSet res = null;
+        List admin = new ArrayList();
+        try{
+            
+          //getting connection
+          conn = this.getConnection();
+          call = conn.prepareCall("{call getAllClasses()}");
+           
+          //executing the procedure
+          res = call.executeQuery();
+          while(res.next()){
+            Clas clas = new Clas();
+            clas.setClass_name(res.getString(1));
+            
+            admin.add(clas);
+          }
+        }catch(SQLException sqle){
+            System.out.println("No class found");
             sqle.printStackTrace();
         }
         return admin;
