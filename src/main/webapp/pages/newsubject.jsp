@@ -44,7 +44,7 @@
             for(Teacher t: teachers) {
               if(t != null) {
            %>
-            <option value=<%= t.getStaff_num() %> ><%= t.getFirst_name() %></option>
+            <option value=<%= t.getStaff_num() %> ><%= t.getFirst_name() %> <%= t.getLast_name() %></option>
            <%
              } else {
             %>
