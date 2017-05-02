@@ -12,51 +12,33 @@
 </head>
 <!-- Body -->
 <body>
-	<!-- Nav Bar -->
-	<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-	  <div class="container">
-	     <jsp:include 
-        page="navigation.jsp?title=Assign Class&back=teacher.jsp"/>
-      <jsp:include page="username.jsp" />
-	  </div>
-	</nav> <!-- End Nav Bar -->
+	
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid bg-dark">
+      <jsp:include page="navigation.jsp?title=Assign Class&back=teacher.jsp" />
+    </div>
+        <!-- /.container-fluid -->
+  </nav> <!-- End Nav Bar -->
 
-  <main class="jumbotron">
-    <center>
-      <!-- Teacher Registration -->
-      <div class="container">
-        <form method="POST" action="../Class_Teacher" >
-          <table>
-            <tr>
-              <td>
-                <label>Teacher</label>
-              </td>
-              <td>
-                <select name="staff_num">
-                  <option value="456">Byte</option>
-                  <option value="5632">Ben</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Class</label>
-              </td>
-              <td>
-                <select name="class_name">
-                  <option value="10A">10A</option>
-                  <option value="10B">10B</option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <input type="submit" name="submit" value="Submit" />
+      <!-- Assign Class -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-offset-5 col-md-3">
+        <div class="form-login">
+          <form method="POST" action="../Teacher" >
+            <h4 class="text-center">Add new teacher</h4>
+              <select name="staff_num">
+                <option value="456">Byte</option>
+                <option value="5632">Ben</option>
+              </select>
+              <select name="class_name">
+                <option value="10A">10A</option>
+                <option value="10B">10B</option>
+              </select>
+          <input class="btn btn-primary" type="submit" name="submit" value="Add Teacher" />
         </form>
-        <p>
-        <a href="#" >More Info </a></p>
-      </div>
-    </center>
-  </main>
+      </section>
+  
    <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
