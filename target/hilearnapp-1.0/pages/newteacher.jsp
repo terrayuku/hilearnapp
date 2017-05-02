@@ -40,6 +40,7 @@
               <input type='text' class="form-control input-sm chat-input" 
                      name="cell_number" placeholder='Phone Number' required=""/><br />             
           <input class="btn btn-primary" type="submit" name="submit" value="Add Teacher" />
+          <input class="btn btn-default" type="reset" name="reset" value="Reset" />
         </form>
       </section>
   

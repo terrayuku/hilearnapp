@@ -40,7 +40,8 @@
                  name="email" placeholder='Email' required=""/><br/>
           
           <input type='password' class="form-control input-sm chat-input" 
-                 name="password" placeholder='Default Password: to be changed' required=""/><br/>
+                 name="password" placeholder='Default Password: to be changed' 
+                 required=""/><br/>
           
           <input type='text' class="form-control input-sm chat-input" 
                  name="grade" placeholder='Grade' required=""/><br/>
@@ -48,7 +49,9 @@
           <input type='text' class="form-control input-sm chat-input" 
                  name="phone" placeholder='Phone Number' required=""/><br/>
           
-          <input class="btn btn-primary" type="submit" name="submit" value="Add Student" />
+          <input class="btn btn-primary" type="submit" name="submit" 
+                 value="Add Student" />
+          <input class="btn btn-default" type="reset" name="reset" value="Reset" />
         </form>
       </div>
       </div>
