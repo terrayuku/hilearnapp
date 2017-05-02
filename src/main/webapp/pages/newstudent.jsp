@@ -20,73 +20,33 @@
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
-  <main class="jumbotron">
-    <center>
-      <div class="container">
+
+  <section class="container">
+    <div class="row">
+      <div class="col-md-offset-5 col-md-3">
+        <div class="form-login">
         <form method="POST" action="../Student" >
-          <table>
-            <tr>
-              <td>
-                <label>Exam Number:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="exam_number"	placeholder='211217328'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>First Name:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="fname" placeholder='Terra'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Last Name:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="lname" placeholder='Byte'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Email:</label>
-              </td>
-              <td>
-                <input type='email' name="email" placeholder='byte@terra.com'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Password:</label>
-              </td>
-              <td>
-                <input type='password' name="password" placeholder='****'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Grade:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="grade" placeholder='12'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Phone #:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="phone" placeholder='0785421365'/>
-              </td>
-            </tr>
-          </table>
-          <input class="btn btn-primary" type="submit" name="submit" value="Add" />
+          <input type='text' class="form-control input-sm chat-input" 
+                 name="exam_number"	placeholder='Exam Number'/><br/>
+          <input type='text' class="form-control input-sm chat-input" 
+                 name="fname" placeholder='Name'/><br/>
+          <input type='text' class="form-control input-sm chat-input" 
+                 name="lname" placeholder='Surname'/><br/>
+          <input type='email' class="form-control input-sm chat-input" 
+                 name="email" placeholder='Email'/><br/>
+          <input type='password' class="form-control input-sm chat-input" 
+                 name="password" placeholder='Default Password'/><br/>
+          <input type='text' class="form-control input-sm chat-input" 
+                 name="grade" placeholder='Grade'/><br/>
+          <input type='text' class="form-control input-sm chat-input" 
+                 name="phone" placeholder='Phone Number'/><br/>
+          
+          <input class="btn btn-primary" type="submit" name="submit" value="Add Student" />
         </form>
       </div>
-    </center>
-  </main>
+      </div>
+    </div>
+  </section>
   
   <section class="bg-dark">
     <!-- footer here -->
