@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <jsp:include page="header.jsp?title=Teachers Class" />
+  <jsp:include page="header.jsp?title=Assign Class" />
 </head>
 <!-- Body -->
 <body>
