@@ -20,53 +20,29 @@
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
-  <main class="jumbotron">
-    <center>
-      <div class="container">
+<section class="container">
+    <div class="row">
+      <div class="col-md-offset-5 col-md-3">
+        <div class="form-login">
+          <h4 class="text-center text-primary">Add Subject</h4>
         <form method="POST" action="../Subject" >
-          <table>
-            <tr>
-              <td>
-                <label>Subject Name:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="subj_name"	placeholder='Math'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Subject Description:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="subj_desc" placeholder='Math Grade 10'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Subject Outline:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="subj_outline" placeholder='Math Grade 10'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Teacher:</label>
-              </td>
-              <td>
-                  <select name="subj_teacher">
-                    <option value="456">Byte</option>
-                    <option value="5632">Ben</option>
-                </select>
-              </td>
-            </tr>
-          </table>
+          <input type='text' class="form-control input-sm chat-input"
+                 name="subj_name"	placeholder='Math'/>
+          <input type='text' class="form-control input-sm chat-input"
+                 name="subj_desc" placeholder='Math Grade 10'/>
+          <input type='text' class="form-control input-sm chat-input"
+                 name="subj_outline" placeholder='Math Grade 10'/>
+          <select name="subj_teacher" class="form-control input-sm chat-input">
+            <option value="456">Byte</option>
+            <option value="5632">Ben</option>
+          </select>
+        
           <input class="btn btn-primary" type="submit" name="submit" value="Add" />
         </form>
       </div>
-    </center>
-  </main>
-  
+      </div>
+    </div>
+</section>
   <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
