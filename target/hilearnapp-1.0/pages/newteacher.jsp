@@ -20,66 +20,28 @@
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
 
-  <main class="jumbotron">
-    <center>
       <!-- Teacher Registration -->
-      <div class="container">
-        <form method="POST" action="../Teacher" >
-          <table>
-            <tr>
-              <td>
-                <label>Staff Number:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="staff_number" placeholder='211217328'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Last Name:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="last_name" placeholder='Terra'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>First Name:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="first_name" placeholder=' Byte'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Email:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="email" placeholder='tera@gmail.com'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Teacher:</label>
-              </td>
-              <td>
-                <input type='password' name="password" placeholder='******'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Cell Number:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="cell_number" placeholder='0786754632'/>
-              </td>
-            </tr>
-          </table>
-          <input class="btn btn-primary" type="submit" name="submit" value="Add" />
+  <section class="container">
+    <div class="row">
+      <div class="col-md-offset-5 col-md-3">
+        <div class="form-login">
+          <form method="POST" action="../Teacher" >
+            <h4>Add new teacher</h4>
+              <input type='text' class="form-control input-sm chat-input" 
+                     name="staff_number" placeholder='211217328'/><br />
+              <input type='text' class="form-control input-sm chat-input" 
+                     name="last_name" placeholder='Terra'/><br />
+              <input type='text' class="form-control input-sm chat-input" 
+                     name="first_name" placeholder=' Byte'/><br />
+              <input type='text' class="form-control input-sm chat-input" 
+                     name="email" placeholder='tera@gmail.com'/><br />
+              <input type='password' class="form-control input-sm chat-input" 
+                     name="password" placeholder='******'/><br />
+              <input type='text' class="form-control input-sm chat-input" 
+                     name="cell_number" placeholder='0786754632'/><br />             
+          <input class="btn btn-primary" type="submit" name="submit" value="Add Teacher" />
         </form>
-      </div>
-    </center>
-  </main>
+      </section>
   
   <section class="bg-dark">
     <!-- footer here -->

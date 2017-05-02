@@ -21,22 +21,28 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <section class="container">
+<section class="container">
 <div class="container-login">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
               <form method="POST" action="../Login">
                 <h4>Login to Continue</h4>
-                      <input type="text" name="username" class="form-control input-sm chat-input" placeholder="Username" />
+                      <input type="text" name="username" 
+                             class="form-control input-sm chat-input" 
+                             placeholder="Username" />
                       </br>
-                      <input type="password" name="password" class="form-control input-sm chat-input" placeholder="Password" />
+                      <input type="password" name="password" 
+                             class="form-control input-sm chat-input" 
+                             placeholder="Password" />
                       </br>
                       <div class="wrapper">
                       <span class="group-btn">     
-                          <input type="submit" class="btn btn-primary btn-md" value="Login">
+                          <input type="submit" class="btn btn-primary btn-md" 
+                                 value="Login">
                       </span>
-                        <button name="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                        <button name="login_lost_btn" type="button" 
+                                class="btn btn-link">Lost Password?</button>
                       </div>
               </form>
             </div>
