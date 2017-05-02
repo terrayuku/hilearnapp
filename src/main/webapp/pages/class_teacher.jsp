@@ -26,19 +26,21 @@
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
           <form method="POST" action="../Teacher" >
-            <h4 class="text-center">Add new teacher</h4>
-            <label class="label">Name</label>
+            <h4 class="text-center">Assign Teacher to a Class</h4>
+            <label class="label-success">Name</label>
               <select name="staff_num">
                 <option value="456">Byte</option>
                 <option value="5632">Ben</option>
               </select>
             <br />
-            <label class="label">Name</label>
+            <label class="label-success">Name</label>
               <select name="class_name">
                 <option value="10A">10A</option>
                 <option value="10B">10B</option>
               </select>
-          <input class="btn btn-primary" type="submit" name="submit" value="Assign Class" />
+            <br/>
+          <input class="btn btn-primary" type="submit" 
+                 name="submit" value="Assign Class" />
         </form>
       </section>
   
