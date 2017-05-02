@@ -4,6 +4,10 @@
     Author     : TerraByte
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.models.Teacher"%>
+<%@page import="java.util.List"%>
+<%@page import="com.db.DBAccess"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,8 +37,22 @@
           <input type='text' class="form-control input-sm chat-input"
                  name="subj_outline" placeholder='Subject Outline'/><br/>
           <select name="subj_teacher" class="form-control input-sm chat-input">
-            <option value="456">Byte</option>
-            <option value="5632">Ben</option>
+          <%
+            DBAccess db = new DBAccess();
+            List<Teacher> teachers = (ArrayList<Teacher>)db.getAllTeachers();
+            
+            for(Teacher t: teachers) {
+              if(t != null) {
+           %>
+            <option value=<%= t.getStaff_num() %> ><%= t.getFirst_name() %></option>
+           <%
+             } else {
+            %>
+            <option value="No Teacher">No Teacher</option>
+            <%
+              }
+            }
+           %>
           </select><br/>        
           <input class="btn btn-primary" type="submit" name="submit" value="Add" />
         </form>

@@ -13,6 +13,7 @@ import com.models.SchoolAdminModel;
 import com.models.SchoolClass;
 import com.models.StudentModel;
 import com.models.Student_Subject;
+import com.models.Teacher;
 import com.models.Teacher_Subject;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -124,6 +125,38 @@ public List getAllAdmins() throws URISyntaxException{
         }
         return admin;
 }
+
+public List getAllTeachers() throws URISyntaxException{
+     Connection conn = null;
+        CallableStatement call = null;
+        ResultSet res = null;
+        List admin = new ArrayList();
+        try{
+            
+          //getting connection
+          conn = this.getConnection();
+          call = conn.prepareCall("{call getAllTeachers()}");
+           
+          //executing the procedure
+          res = call.executeQuery();
+          while(res.next()){
+            Teacher teacher = new Teacher();
+            teacher.setStaff_num(res.getString(1));
+            teacher.setLast_name(res.getString(2));
+            teacher.setFirst_name(res.getString(3));
+            teacher.setEmail(res.getString(4));
+            teacher.setCell(res.getString(5));
+            teacher.setAdmin(res.getString(6));
+            
+            admin.add(teacher);
+          }
+        }catch(SQLException sqle){
+            System.out.println("No teacher found");
+            sqle.printStackTrace();
+        }
+        return admin;
+}
+
 /**
  * 
  * @param school_number
