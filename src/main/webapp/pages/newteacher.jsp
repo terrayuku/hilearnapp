@@ -26,19 +26,19 @@
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
           <form method="POST" action="../Teacher" >
-            <h4>Add new teacher</h4>
+            <h4 class="text-center">Add new teacher</h4>
               <input type='text' class="form-control input-sm chat-input" 
-                     name="staff_number" placeholder='211217328'/><br />
+                     name="staff_number" placeholder='Staff Number'/><br />
               <input type='text' class="form-control input-sm chat-input" 
-                     name="last_name" placeholder='Terra'/><br />
+                     name="last_name" placeholder='Name'/><br />
               <input type='text' class="form-control input-sm chat-input" 
-                     name="first_name" placeholder=' Byte'/><br />
+                     name="first_name" placeholder='Surname'/><br />
               <input type='text' class="form-control input-sm chat-input" 
-                     name="email" placeholder='tera@gmail.com'/><br />
+                     name="email" placeholder='Email'/><br />
               <input type='password' class="form-control input-sm chat-input" 
-                     name="password" placeholder='******'/><br />
+                     name="password" placeholder='Default Password'/><br />
               <input type='text' class="form-control input-sm chat-input" 
-                     name="cell_number" placeholder='0786754632'/><br />             
+                     name="cell_number" placeholder='Phone Number'/><br />             
           <input class="btn btn-primary" type="submit" name="submit" value="Add Teacher" />
         </form>
       </section>
