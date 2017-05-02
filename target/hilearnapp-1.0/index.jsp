@@ -71,7 +71,7 @@
                     <p class="text-center">Hi-Learn is a student-centric e-learning platform for high schools.
               The aim is to provide efficient teacher-to-student, student-to-student communication,
               and allow quick response to student study rising questions while off-class.</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Services</a>
                 </div>
             </div>
         </div>
