@@ -22,14 +22,22 @@
     </nav> <!-- End Nav Bar -->
   <section class="container">
     <div class="row">
-      <div class="col-lg-3 col-md-6 text-center">
-        <a href="newstudent.jsp" class="btn btn-primary">New Student</a>
+      <div class="service-box">
+        <div class="col-lg-3 col-md-6 text-center">
+          <a href="newstudent.jsp" class="btn btn-primary">New Student</a>
+        </div>
       </div>
-			<div class="col-lg-3 col-md-6 text-center">
-        <a href="student_subject.jsp" class="btn btn-primary">Assign Subject</a>
+      
+      <div class="service-box">
+        <div class="col-lg-3 col-md-6 text-center">
+          <a href="student_subject.jsp" class="btn btn-primary">Assign Subject</a>
+        </div>
       </div>
-			<div class="col-lg-3 col-md-6 text-center">
-        <a href="#" class="btn btn-danger">Delete Student</a>
+      
+      <div class="service-box">
+        <div class="col-lg-3 col-md-6 text-center">
+          <a href="#" class="btn btn-danger">Delete Student</a>
+        </div>
       </div>
 		</div> 
   </section>
