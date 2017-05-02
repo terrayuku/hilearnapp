@@ -13,7 +13,7 @@
   <body>
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid bg-dark">
-          <jsp:include page="navigation.jsp?title=Hi-File Upload&back=teacher_portal.jsp" />
+          <jsp:include page="navigation.jsp?title=Hi-File Upload&back=teacher_subject.jsp" />
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
