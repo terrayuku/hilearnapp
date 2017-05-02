@@ -26,15 +26,16 @@
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
           <form method="POST" action="../Teacher" >
-            <h4 class="text-center">Assign Teacher to a Class</h4>
-            <label class="label-primary">Name</label>
-              <select name="staff_num">
+            <h4 class="text-primary">Assign Teacher to a Class</h4>
+            <h4 class="text-success">Name</h4>
+              <select name="staff_num" class="form-control input-sm chat-input" >
                 <option value="456">Byte</option>
                 <option value="5632">Ben</option>
               </select>
             <br />
-            <label class="label-primary">Class</label>
-              <select name="class_name">
+            
+            <h4 class="text-success">Class</h4>
+              <select name="class_name" class="form-control input-sm chat-input" >
                 <option value="10A">10A</option>
                 <option value="10B">10B</option>
               </select>
