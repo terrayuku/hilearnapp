@@ -20,41 +20,24 @@
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
 
-  <main class="jumbotron">
-    <center>
-      <div class="container">
+ <section class="container">
+    <div class="row">
+      <div class="col-md-offset-5 col-md-3">
+        <div class="form-login">
+          <h4 class="text-center text-primary">Add class</h4>
         <form method="POST" action="../School_Class" >
-          <table>
-            <tr>
-              <td>
-                <label>Class Name:</label>
-              </td>
-              <td>
-                <input type='text' onChange="" name="class_name" placeholder='10A'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Number of Students (Optional)</label>
-              </td>
-              <td>
-                <input type='text' name="number_of_studets" placeholder='5'/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Number of Teachers (Optional)</label>
-              </td>
-              <td>
-                <input type='text' name="number_of_teachers" placeholder='5'/>
-              </td>
-            </tr>
-          </table>
+          <input type='text' class="form-control input-sm chat-input"
+                 name="class_name" placeholder='Class Name: i.e. 10A'/><br/>
+          <input type='text' class="form-control input-sm chat-input"
+                 name="number_of_studets" placeholder='Number of Students'/><br/>
+          <input type='text' class="form-control input-sm chat-input"
+                 name="number_of_teachers" placeholder='Number of Teacher'/><br/>
           <input class="btn btn-primary" type="submit" name="submit" value="Add" />
+          <input class="btn btn-default" type="reset" name="reset" value="Reset" />
         </form>
       </div>
-    </center>
-  </main>
+    </div>
+ </section>
   
   <section class="bg-dark">
     <!-- footer here -->
