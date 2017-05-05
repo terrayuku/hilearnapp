@@ -38,7 +38,7 @@
           <select name="subj_class" class="form-control input-sm chat-input">
           <%
             DBAccess db = new DBAccess();
-            List<Clas> clas = (ArrayList<Clas>)db.getAllTeachers();
+            List<Clas> clas = (ArrayList<Clas>)db.getAllClasses();
             
             for(Clas c: clas) {
               if(c != null) {
