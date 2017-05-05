@@ -4,6 +4,7 @@
     Author     : TerraByte
 --%>
 
+<%@page import="com.models.Clas"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.models.Teacher"%>
 <%@page import="java.util.List"%>
@@ -34,11 +35,27 @@
                  name="subj_name"	placeholder='Subject Name'/><br/>
           <input type='text' class="form-control input-sm chat-input"
                  name="subj_desc" placeholder='Subject Description'/><br/>
-          <input type='text' class="form-control input-sm chat-input"
-                 name="subj_outline" placeholder='Subject Outline'/><br/>
-          <select name="subj_teacher" class="form-control input-sm chat-input">
+          <select name="subj_class" class="form-control input-sm chat-input">
           <%
             DBAccess db = new DBAccess();
+            List<Clas> clas = (ArrayList<Clas>)db.getAllTeachers();
+            
+            for(Clas c: clas) {
+              if(c != null) {
+           %>
+            <option value=<%= c.getClass_name() %> ><%= c.getClass_name() %></option>
+           <%
+             } else {
+            %>
+            <option value="No Teacher">No Teacher</option>
+            <%
+              }
+            }
+           %>
+          </select><br/>
+          <select name="subj_teacher" class="form-control input-sm chat-input">
+          <%
+            
             List<Teacher> teachers = (ArrayList<Teacher>)db.getAllTeachers();
             
             for(Teacher t: teachers) {

@@ -816,7 +816,7 @@ public boolean addSubject(AddSubject subject) throws Exception{
         //setting the parameters
         call.setString(1, subject.getSub_name());
         call.setString(2, subject.getSub_description());
-        call.setString(3, subject.getSub_outline());
+        call.setString(3, subject.getSub_class());
         call.setString(4, subject.getSub_teacher());
         call.setString(5, subject.getSchool_admin());
         //ex

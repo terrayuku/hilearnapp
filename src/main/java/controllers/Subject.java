@@ -26,7 +26,7 @@ public class Subject extends HttpServlet {
       // getting student data
       String subj_name = request.getParameter("subj_name");
       String subj_desc = request.getParameter("subj_desc");
-      String subj_outline = request.getParameter("subj_outline");
+      String subj_class = request.getParameter("subj_class");
       String subj_teacher = request.getParameter("subj_teacher");
       String subj_admin = (String)session.getAttribute("id");
       
@@ -42,7 +42,7 @@ public class Subject extends HttpServlet {
       if(subj_desc == null && subj_desc.trim().length() == 0){
         error.put("lname", "Last Name Required");
       }
-      if(subj_outline == null && subj_outline.trim().length() == 0){
+      if(subj_class == null && subj_class.trim().length() == 0){
         error.put("fname", "First Name Required");
       }
       if(subj_teacher == null && subj_teacher.trim().length() == 0){
@@ -55,7 +55,7 @@ public class Subject extends HttpServlet {
       if (error.isEmpty()) {
         try {
           // Call DAO to add the Student
-          AddSubject sub = new AddSubject(subj_name, subj_desc, subj_outline,
+          AddSubject sub = new AddSubject(subj_name, subj_desc, subj_class,
             subj_teacher, subj_admin);
 
           // calling the student data access object
