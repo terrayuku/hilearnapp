@@ -8,6 +8,7 @@ C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\com\models\ClassT
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\com\models\Teacher_Subject.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\com\models\Student_Subject.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\controllers\Class_Teacher.java
+C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\com\models\Clas.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\controllers\Admin.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\controllers\CommentsChart.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\controllers\Subject.java
@@ -30,4 +31,5 @@ C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\utils\AWSUtils.ja
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\com\models\Comments.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\controllers\School_Class.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\com\models\Comment.java
+C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\com\models\Teacher.java
 C:\Users\TerraByte\Documents\Hi-Learn\hilearnapp\src\main\java\controllers\Controller.java
