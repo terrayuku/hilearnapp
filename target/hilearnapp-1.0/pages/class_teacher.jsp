@@ -31,7 +31,7 @@
     <div class="row">
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
-          <form method="POST" action="../Teacher" >
+          <form method="POST" action="../Class_Teacher" >
             <h4 class="text-primary">Assign Teacher to a Class</h4>
             <h4 class="text-success">Name</h4>
             <select name="staff_num" class="form-control input-sm chat-input" >
