@@ -29,8 +29,10 @@
     <div class="row">
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
-          <h4 class="text-center text-primary">Add Subject</h4>
+          <h4 class="text-center text-primary">Add Subject
+            <%= (String)request.getAttribute("message") != null ? (String)request.getAttribute("message") : " "  %></h4>
         <form method="POST" action="../Subject" >
+          <input type="hidden" name="id" value="<%= session.getAttribute("id") %>" />
           <input type='text' class="form-control input-sm chat-input"
                  name="subj_name"	placeholder='Subject Name'/><br/>
           <input type='text' class="form-control input-sm chat-input"

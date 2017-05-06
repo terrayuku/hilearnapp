@@ -59,8 +59,8 @@ public class Subject extends HttpServlet {
             subj_teacher, subj_admin);
 
           // calling the student data access object
-          DBAccess dbStudent = new DBAccess();
-          boolean isAdded = dbStudent.addSubject(sub);
+          DBAccess db = new DBAccess();
+          boolean isAdded = db.addSubject(sub);
           if (isAdded) { //when a student is added successfully
             request.setAttribute("message", "Student Successfully Added");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
