@@ -137,7 +137,9 @@ public class FileUpload extends HttpServlet {
               } else {
                 System.err.print(":ERR: " + "Upload Failed");
                 response.setStatus(response.SC_MOVED_TEMPORARILY);
-                response.setHeader("Location", "pages/fileUpload.jsp");
+                response.setHeader("Location", "pages/fileUpload.jsp?class="+
+                        request.getParameter("class") + "&subject=" +
+                        request.getParameter("subject"));
               }
  
             } else {
