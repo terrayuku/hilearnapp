@@ -148,6 +148,9 @@ public class FileUpload extends HttpServlet {
                   }
               }else {
                 LOGGER.info("FILE_UPLOAD_ERROR: Parameters are empty");
+                response.setHeader("Location", "pages/fileUpload.jsp?class="+
+                            request.getParameter("class") + "&subject=" +
+                            request.getParameter("subject"));
               }
  
             } else {

@@ -34,7 +34,10 @@
                   }
                 %>
                 <input type="file" name="uploadFile" class="form-control input-sm" />
-                </br>
+                <br />
+                <input type="hidden" name="class" value="<%= request.getParameter("class") %>"
+                       <input type="hidden" name="subject" value="<%= request.getParameter("subject") %>"
+                       <input type="hidden" name="id" value="<%= session.getAttribute("id") %>"
                 <input type="text" name="desc" class="form-control input-sm chat-input" placeholder="Describe this file" />
                 <br />
                 <div class="wrapper">
