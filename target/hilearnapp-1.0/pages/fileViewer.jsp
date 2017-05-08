@@ -26,8 +26,8 @@
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
-<main>
-<div class="container-login">
+
+<section class="container-login">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
@@ -36,8 +36,18 @@
                 <%
                   AWSUtils utils = new AWSUtils();
                   String line = utils.readBucket("hilearnfiles", "Bursary.pdf");
+                  
+                  if(line != null) {
                   %>
                   <%= line %>
+                  
+                  <%
+                    } else {
+                    %>
+                    <p class="text-center">No Content</p>
+                    <%
+                      }
+                    %>
 <!--                <input type="file" name="uploadFile" class="form-control input-sm" />
                 </br>
                 <input type="text" name="desc" class="form-control input-sm chat-input" placeholder="Describe this file" />-->
@@ -52,8 +62,7 @@
             </div>
         </div>
     </div>
-</div>
-</main>
+</section>
 <section class="bg-dark">
     <!-- footer here -->
     <jsp:include page="footer.jsp" />
