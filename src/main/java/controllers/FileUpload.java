@@ -132,11 +132,13 @@ public class FileUpload extends HttpServlet {
                 // Load the fileUpload.jsp and send a success message
                 request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");
 //                response.setStatus(response.SC_MOVED_TEMPORARILY);
-                response.setHeader("Location", "pages/fileUpload.jsp");
+                response.setHeader("Location", "pages/fileUpload.jsp?class="+
+                        request.getParameter("class") + "&subject=" +
+                        request.getParameter("subject"));
                 
               } else {
                 System.err.print(":ERR: " + "Upload Failed");
-                response.setStatus(response.SC_MOVED_TEMPORARILY);
+//                response.setStatus(response.SC_MOVED_TEMPORARILY);
                 response.setHeader("Location", "pages/fileUpload.jsp?class="+
                         request.getParameter("class") + "&subject=" +
                         request.getParameter("subject"));

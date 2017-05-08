@@ -778,13 +778,13 @@ public boolean addFile(Upload upload) throws Exception {
         //connection to the db
         conn=getConnection();
         conn.setAutoCommit(false);
-        call=conn.prepareCall("{call addfile(?,?,?,?)}");
+        call=conn.prepareCall("{call addFile(?,?,?,?)}");
         call.setString(1, upload.getFile_name());
         call.setString(2, upload.getSubject());
         call.setString(3, upload.getFile_description());
         call.setString(4, upload.getUploaded_by());
                                     
-        int status=call.executeUpdate();
+        int status = call.executeUpdate();
 
         isInserted = status>0;
         if(isInserted){
