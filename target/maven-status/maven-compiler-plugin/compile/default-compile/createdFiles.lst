@@ -5,6 +5,7 @@ controllers\getStudent_Subject.class
 com\models\StudentModel.class
 controllers\Login.class
 com\models\Upload.class
+com\models\Clas.class
 com\models\Teacher_Subject.class
 controllers\Admin.class
 controllers\School_Class.class
@@ -12,6 +13,7 @@ controllers\CommentsController.class
 controllers\CommentsChart.class
 controllers\Logout.class
 com\models\Comment.class
+com\models\Teacher.class
 controllers\Student_Sub.class
 interfaces\PersonalInfo.class
 com\models\AddSubject.class

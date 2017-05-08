@@ -28,18 +28,20 @@
   <%
     DBAccess db = new DBAccess();
     System.out.println((String)session.getAttribute("id"));
-    ArrayList class_teacher = (ArrayList)db.getClassTeacher((String)session.getAttribute("id"));
+    ArrayList clas = (ArrayList)db.getClassTeacher((String)session.getAttribute("id"));
       
-    if(!class_teacher.isEmpty()) {
-      for(int i = 0; i < class_teacher.size(); i++) {
-        
+    if(!clas.isEmpty()) {
+      for(int i = 0; i < clas.size(); i++) {
+        if(clas.get(i).equals(clas.get(i + 1))) {
+          clas.remove(clas.get(i + 1));
+        }
   %>
   	<!-- Student Subject -->
-      <a href="teacher_subject.jsp?class=<%= class_teacher.get(i) %>">
+      <a href="teacher_subject.jsp?class=<%= clas.get(i) %>">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box">
             <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
-              <h3><%= class_teacher.get(i) %></h3>
+              <h3><%= clas.get(i) %></h3>
           </div>
         </div>
       </a>
