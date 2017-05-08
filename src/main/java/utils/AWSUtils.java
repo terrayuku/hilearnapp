@@ -7,11 +7,13 @@ import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.db.DBAccess;
 import com.models.Upload;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
@@ -37,6 +39,15 @@ public class AWSUtils{
    */
   private static final Logger LOGGER = Logger.getLogger(AWSUtils.class.getName());
   
+  private AmazonS3Client credentials() {
+    // create credentials
+    BasicAWSCredentials credentials = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRETE_KEY);
+    
+      // create an aws client
+      AmazonS3Client s3Client = new AmazonS3Client(credentials);
+      
+      return s3Client;
+  }
   /**
    * function to upload files to aws-s3
    * @param file to upload
@@ -55,11 +66,12 @@ public class AWSUtils{
           String teacher_id // teacher id
   ) { 
     // create credentials
-    BasicAWSCredentials credentials = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRETE_KEY);
+    // BasicAWSCredentials credentials = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRETE_KEY);
     
     try {
       // create an aws client
-      AmazonS3Client s3Client = new AmazonS3Client(credentials);
+       AmazonS3Client s3Client = credentials();
+      
       // read file metada
       ObjectMetadata om = new ObjectMetadata();
       // get file size througu metadata
@@ -106,13 +118,34 @@ public class AWSUtils{
    * to read bucket contents in the s3 hilearn bucket based on the school of the student
    * , class, and subject.
    * @param bucketName is the bucket to be rad
-   * @return a list of of keys in the bucket
+   * @param key to read the content
+   * @return a the input stream of the key's content
    */
-  public List readBucket(String bucketName) {
+  public String readBucket(String bucketName, String key) {
     
-    // to store bucket key names
-    ArrayList bucketContents = new ArrayList<>();
-        
-    return bucketContents;
+    try {
+      // connecting to s3 client
+      AmazonS3Client s3Client = credentials();
+      
+      S3Object obj = s3Client.getObject(bucketName, key);
+      
+      BufferedReader reader = new BufferedReader(new 
+        InputStreamReader(obj.getObjectContent()));
+      
+      String line = null;
+      
+      while (true) {
+        line = reader.readLine();
+        if (line == null) break;
+      }
+      
+      return line;
+      
+    } catch(AmazonS3Exception as3e) {
+      LOGGER.log(Level.INFO, "AMAZON_S3_CLIENTERR: {0}", as3e.getMessage());
+    } catch (IOException ex) {
+      LOGGER.log(Level.SEVERE, "READLINE_ERR", ex.getMessage());
+    }
+    return null;
   }
 }
