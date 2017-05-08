@@ -45,14 +45,11 @@
         </div>
         </div>
       </a>
-		</div>			
-  </section>
   <%
       }
     } else {
       session.setAttribute("subject", "No Subjects");
   %>
-  <section class="container">
   <div class="service-box text-center">
     <i class="glyphicon glyphicon-book fa-4x text-primary sr-icons"></i>
       <h3>No Subject</h3>
@@ -60,6 +57,7 @@
       <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= request.getParameter("class") %>"
          class="btn btn-default btn-xl sr-button text-primary"> Click to Upload</a>
   </div>
+ </div>
   <%
     }
    %>
