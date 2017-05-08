@@ -66,12 +66,12 @@ public class FileUpload extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
  
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(true);
         // needed for cross-domain communication
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "POST");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Max-Age", "86400");
+//        response.setHeader("Access-Control-Allow-Origin", "*");
+//        response.setHeader("Access-Control-Allow-Methods", "POST");
+//        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+////        response.setHeader("Access-Control-Max-Age", "86400");
         
         // user data 
         String desc = request.getParameter("desc");
