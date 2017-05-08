@@ -131,7 +131,7 @@ public class FileUpload extends HttpServlet {
                 
                 // Load the fileUpload.jsp and send a success message
                 request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");
-                response.setStatus(response.SC_MOVED_TEMPORARILY);
+//                response.setStatus(response.SC_MOVED_TEMPORARILY);
                 response.setHeader("Location", "pages/fileUpload.jsp");
                 
               } else {
