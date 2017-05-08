@@ -117,31 +117,37 @@ public class FileUpload extends HttpServlet {
             }
  
             if (itemFile != null) {
-              
-              AWSUtils awsS3 = new AWSUtils();
-              boolean isUploaded = awsS3.upload2S3(itemFile, // content
-                S3_BUCKET_NAME,  // bucket name
-                request.getParameter("class"), // class folder 
-                request.getParameter("subject"), // subject folder for the class
-                itemFile.getName(), // file name
-                (String)session.getAttribute("id") // teacher id
-                ); 
-              
-              if(isUploaded) {
+              if((String)request.getParameter("class") != null &&
+                  (String)request.getParameter("subject") != null &&
+                  (String)session.getAttribute("id") != null ) {
                 
-                // Load the fileUpload.jsp and send a success message
-                request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");
-//                response.setStatus(response.SC_MOVED_TEMPORARILY);
-                response.setHeader("Location", "pages/fileUpload.jsp?class="+
-                        request.getParameter("class") + "&subject=" +
-                        request.getParameter("subject"));
-                
-              } else {
-                System.err.print(":ERR: " + "Upload Failed");
-//                response.setStatus(response.SC_MOVED_TEMPORARILY);
-                response.setHeader("Location", "pages/fileUpload.jsp?class="+
-                        request.getParameter("class") + "&subject=" +
-                        request.getParameter("subject"));
+                  AWSUtils awsS3 = new AWSUtils();
+                  boolean isUploaded = awsS3.upload2S3(itemFile, // content
+                    S3_BUCKET_NAME,  // bucket name
+                    (String)request.getParameter("class"), // class folder 
+                    (String)request.getParameter("subject"), // subject folder for the class
+                    itemFile.getName(), // file name
+                    (String)session.getAttribute("id") // teacher id
+                    ); 
+
+                  if(isUploaded) {
+
+                    // Load the fileUpload.jsp and send a success message
+                    request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");
+    //                response.setStatus(response.SC_MOVED_TEMPORARILY);
+                    response.setHeader("Location", "pages/fileUpload.jsp?class="+
+                            request.getParameter("class") + "&subject=" +
+                            request.getParameter("subject"));
+
+                  } else {
+                    System.err.print(":ERR: " + "Upload Failed");
+    //                response.setStatus(response.SC_MOVED_TEMPORARILY);
+                    response.setHeader("Location", "pages/fileUpload.jsp?class="+
+                            request.getParameter("class") + "&subject=" +
+                            request.getParameter("subject"));
+                  }
+              }else {
+                LOGGER.info("FILE_UPLOAD_ERROR: Parameters are empty");
               }
  
             } else {
