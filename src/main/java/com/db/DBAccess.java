@@ -268,6 +268,7 @@ public List getClassTeacher(String staff_num) throws URISyntaxException{
         call = conn.prepareCall("{call getClassTeacher(?)}");
         //executing the procedure
         call.setString(1, staff_num);
+        
         res = call.executeQuery();
         while(res.next()){
             class_teacher.add(res.getString(1));
@@ -345,7 +346,7 @@ public List getStudent_Subject(String exam_num) throws URISyntaxException
     return subject;
 }
 
-public List getTeacher_Subject(String staff_num) throws URISyntaxException{
+public List getTeacher_Subject(String staff_num, String clas) throws URISyntaxException{
     Connection conn = null;
     CallableStatement call = null;
     ResultSet res = null;
@@ -358,12 +359,13 @@ public List getTeacher_Subject(String staff_num) throws URISyntaxException{
         //auto commint false
 //      conn.setAutoCommit(false);
         //calling a stored procedure createComment
-        call = conn.prepareCall("{call getTeacher_Subject(?)}");
+        call = conn.prepareCall("{call getTeacher_Subject(?, ?)}");
         //executing the procedure
         call.setString(1, staff_num);
+        call.setString(2, clas);
         res = call.executeQuery();
         while(res.next()){
-          System.out.println(res.getString(1));
+//          System.out.println(res.getString(1));
             subject.add(res.getString(1));
          }
     }catch(SQLException sqle){
