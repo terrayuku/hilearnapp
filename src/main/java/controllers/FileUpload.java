@@ -13,17 +13,21 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
+
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -62,6 +66,7 @@ public class FileUpload extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
  
+        HttpSession session = request.getSession();
         // needed for cross-domain communication
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST");
@@ -114,7 +119,13 @@ public class FileUpload extends HttpServlet {
             if (itemFile != null) {
               
               AWSUtils awsS3 = new AWSUtils();
-              boolean isUploaded = awsS3.upload2S3(itemFile, S3_BUCKET_NAME, itemFile.getName());
+              boolean isUploaded = awsS3.upload2S3(itemFile, // content
+                S3_BUCKET_NAME,  // bucket name
+                request.getParameter("class"), // class folder 
+                request.getParameter("subject"), // subject folder for the class
+                itemFile.getName(), // file name
+                (String)session.getAttribute("id") // teacher id
+                ); 
               
               if(isUploaded) {
                 

@@ -27,6 +27,20 @@ public class Upload {
         this.uploaded_by = uploaded_by;
     }
 
+  public Upload(String file_name, String subject) {
+    this.file_name = file_name;
+    this.subject = subject;
+  }
+
+  public Upload(String file_name, String subject, String file_description, String uploaded_by) {
+    this.file_name = file_name;
+    this.subject = subject;
+    this.file_description = file_description;
+    this.uploaded_by = uploaded_by;
+  }
+  
+  
+    
     public Upload() {
     }
 
