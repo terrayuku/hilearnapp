@@ -23,6 +23,9 @@
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
 
+    	<!-- Teacher Subject -->
+	<section class="container">
+		<div class="row">
   <%
     DBAccess db = new DBAccess();
     System.out.println((String)session.getAttribute("id"));
@@ -34,18 +37,15 @@
       for(int i = 0; i < teacher_subject.size(); i++) {
         
   %>
-  	<!-- Teacher Subject -->
-	<section class="container">
-    <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= teacher_subject.get(i) %>" >
-		<div class="row">
-      <div class="col-lg-3 col-md-6 text-center">
-      <div class="service-box">
-        <i class="glyphicon glyphicon-book fa-4x text-center sr-icons"></i>
-        <h3><%= teacher_subject.get(i) %></h3>
-      </div>
-      </div>
-		</div>	
-		</a>		
+      <a href="fileUpload.jsp?class=<%= request.getParameter("class") %>&subject=<%= teacher_subject.get(i) %>" >
+        <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <i class="glyphicon glyphicon-book fa-4x text-center sr-icons"></i>
+          <h3><%= teacher_subject.get(i) %></h3>
+        </div>
+        </div>
+      </a>
+		</div>			
   </section>
   <%
       }
