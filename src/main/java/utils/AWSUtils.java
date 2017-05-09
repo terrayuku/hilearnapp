@@ -86,7 +86,7 @@ public class AWSUtils{
       
     } catch(AmazonS3Exception as3e) {
       
-      LOGGER.log(Level.SEVERE, as3e.getMessage());
+      LOGGER.log(Level.SEVERE, "ERR_AWS3Exception: {0}", as3e.getMessage());
       
     } catch(AmazonClientException ace) {
       

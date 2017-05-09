@@ -123,7 +123,7 @@ public class FileUpload extends HttpServlet {
                     itemFile.getName(), // file name
                     (String)session.getAttribute("id") // teacher id
                     ); 
-
+                  System.out.println("isUploaded: " + isUploaded);
                   if(isUploaded) {
                      // save the path to the database to be used to download the uploaded file
                     DBAccess db = new DBAccess();
