@@ -38,10 +38,14 @@
                   BufferedReader line = utils.readBucket("hilearnfiles", "Bursary.pdf");
                   
                   if(line != null) {
+                    while(true) {
+                      if(line.readLine() == null) break;
+                      else
                   %>
                   <%= line.readLine() %>
                   
                   <%
+                    }
                     } else {
                     %>
                     <p class="text-center">No Content</p>
