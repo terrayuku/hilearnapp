@@ -136,47 +136,38 @@ public class FileUpload extends HttpServlet {
 
                     if(upload2DB) {
                       // Load the fileUpload.jsp and send a success message
-                    request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");
-    //                response.setStatus(response.SC_MOVED_TEMPORARILY);
-                    response.setHeader("Location", "pages/fileUpload.jsp?class="+
-                            request.getParameter("class") + "&subject=" +
-                            request.getParameter("subject"));
+                    rout(response, session);
+                    
                     } else {
                       System.err.print(":ERR: " + "Upload Failed To DB");
-    //                response.setStatus(response.SC_MOVED_TEMPORARILY);
-                    response.setHeader("Location", "pages/fileUpload.jsp?class="+
-                            request.getParameter("class") + "&subject=" +
-                            request.getParameter("subject"));
+                      rout(response, session);
                     }
-                    
 
                   } else {
                     System.err.print(":ERR: " + "Upload Failed To S3");
-    //                response.setStatus(response.SC_MOVED_TEMPORARILY);
-                    response.setHeader("Location", "pages/fileUpload.jsp?class="+
-                            request.getParameter("class") + "&subject=" +
-                            request.getParameter("subject"));
+                    rout(response, session);
                   }
               }else {
                 LOGGER.info("FILE_UPLOAD_ERROR: Parameters are empty");
-                response.setHeader("Location", "pages/fileUpload.jsp?class="+
-                            request.getParameter("class") + "&subject=" +
-                            request.getParameter("subject"));
+                rout(response, session);
               }
  
             } else {
                 System.err.print("ERR: " + "No Upload file");
-                response.setHeader("Location", "pages/fileUpload.jsp?class="+
-                            request.getParameter("class") + "&subject=" +
-                            request.getParameter("subject"));
+                rout(response, session);
             }
  
         } catch (Exception ex) {
             System.err.print("ERR: " + ex.getMessage());
+            rout(response, session);
         }
         LOGGER.log(Level.INFO, "{0}:Upload done", uuidValue);
-        response.setHeader("Location", "pages/fileUpload.jsp?class="+
-          (String)session.getAttribute("subject") + "&subject=" +
+        rout(response, session);
+        
+    }
+    private void rout(HttpServletResponse response, HttpSession session) {
+      response.setHeader("Location", "pages/fileUpload.jsp?class="+
+          (String)session.getAttribute("class") + "&subject=" +
           (String)session.getAttribute("subject"));
     }
 }

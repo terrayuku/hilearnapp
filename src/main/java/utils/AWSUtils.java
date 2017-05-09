@@ -80,7 +80,7 @@ public class AWSUtils{
       s3Client.putObject(new PutObjectRequest(bucket + "/" +
         clas + "/" + subject, file.getName(),
         file.getInputStream(), om));
-      s3Client.setObjectAcl(bucket, file.getName() , CannedAccessControlList.PublicRead);
+//      s3Client.setObjectAcl(bucket, file.getName() , CannedAccessControlList.PublicRead);
       
      return true;
       
@@ -95,7 +95,7 @@ public class AWSUtils{
     } 
     
     // unsuccessful upload
-    return true;
+    return false;
   }
   
   /**
