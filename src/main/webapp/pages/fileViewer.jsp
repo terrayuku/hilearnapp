@@ -35,23 +35,16 @@
                 <h4>Choose a file to download</h4>
                 <%
                   AWSUtils utils = new AWSUtils();
-                  BufferedReader line = utils.readBucket("hilearnfiles", "Bursary.pdf");
-                  
-                  if(line != null) {
-                    while(true) {
-                      if(line.readLine() == null) break;
-                      else
+                  BufferedReader reader = utils.readBucket("hilearnfiles", "Bursary.pdf");
+                  String line;
+                  while((line = reader.readLine()) != null) {
                   %>
-                  <%= line.readLine() %>
+                  <%= line%>
                   
                   <%
                     }
-                    } else {
                     %>
                     <p class="text-center">No Content</p>
-                    <%
-                      }
-                    %>
 <!--                <input type="file" name="uploadFile" class="form-control input-sm" />
                 </br>
                 <input type="text" name="desc" class="form-control input-sm chat-input" placeholder="Describe this file" />-->
