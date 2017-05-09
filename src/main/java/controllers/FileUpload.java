@@ -166,6 +166,7 @@ public class FileUpload extends HttpServlet {
         
     }
     private void rout(HttpServletResponse response, HttpSession session) {
+      response.setStatus(response.SC_MOVED_TEMPORARILY);
       response.setHeader("Location", "pages/fileUpload.jsp?class="+
           (String)session.getAttribute("class") + "&subject=" +
           (String)session.getAttribute("subject"));
