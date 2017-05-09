@@ -5,14 +5,8 @@
  */
 package controllers;
 
-import com.amazonaws.AmazonClientException;
-import com.amazonaws.AmazonServiceException;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.db.DBAccess;
+import com.models.Upload;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +15,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -132,16 +125,31 @@ public class FileUpload extends HttpServlet {
                     ); 
 
                   if(isUploaded) {
+                     // save the path to the database to be used to download the uploaded file
+                    DBAccess db = new DBAccess();
 
-                    // Load the fileUpload.jsp and send a success message
+                    Upload uplo = new Upload(itemFile.getName(), (String)session.getAttribute("subject"),
+                            (String)session.getAttribute("class"), (String)session.getAttribute("id"));
+                    boolean upload2DB = db.addFile(uplo); 
+
+                    if(upload2DB) {
+                      // Load the fileUpload.jsp and send a success message
                     request.setAttribute("message", itemFile.getName() + "Successfully Uploaded");
     //                response.setStatus(response.SC_MOVED_TEMPORARILY);
                     response.setHeader("Location", "pages/fileUpload.jsp?class="+
                             request.getParameter("class") + "&subject=" +
                             request.getParameter("subject"));
+                    } else {
+                      System.err.print(":ERR: " + "Upload Failed To DB");
+    //                response.setStatus(response.SC_MOVED_TEMPORARILY);
+                    response.setHeader("Location", "pages/fileUpload.jsp?class="+
+                            request.getParameter("class") + "&subject=" +
+                            request.getParameter("subject"));
+                    }
+                    
 
                   } else {
-                    System.err.print(":ERR: " + "Upload Failed");
+                    System.err.print(":ERR: " + "Upload Failed To S3");
     //                response.setStatus(response.SC_MOVED_TEMPORARILY);
                     response.setHeader("Location", "pages/fileUpload.jsp?class="+
                             request.getParameter("class") + "&subject=" +

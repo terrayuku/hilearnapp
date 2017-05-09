@@ -82,17 +82,7 @@ public class AWSUtils{
         file.getInputStream(), om));
       s3Client.setObjectAcl(bucket, file.getName() , CannedAccessControlList.PublicRead);
       
-      // save the path to the database to be used to download the uploaded file
-      DBAccess db = new DBAccess();
-      
-      Upload upload = new Upload(file.getName(), subject, clas, teacher_id);
-      boolean upload2S3 = db.addFile(upload); 
-      
-      if(upload2S3) {
-        return true; // if file data added to db successful and file added to s3
-      } else {
-        return false;
-      }
+     return true;
       
     } catch(AmazonS3Exception as3e) {
       
