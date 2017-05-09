@@ -9,20 +9,20 @@ package com.models;
  *
  * @author TerraByte
  */
-public class AddSubject {
+public class Subject {
   private String sub_name;
   private String sub_description;
   private String sub_class;
   private String sub_teacher;
   private String school_admin;
 
-  public AddSubject() {
+  public Subject() {
   }
 
-  public AddSubject(String sub_name, String sub_description, String sub_outline, String sub_teacher, String school_admin) {
+  public Subject(String sub_name, String sub_description, String clas, String sub_teacher, String school_admin) {
     this.sub_name = sub_name;
     this.sub_description = sub_description;
-    this.sub_class = sub_outline;
+    this.sub_class = clas;
     this.sub_teacher = sub_teacher;
     this.school_admin = school_admin;
   }

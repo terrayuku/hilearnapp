@@ -4,6 +4,13 @@
     Author     : TerraByte
 --%>
 
+<%@page import="com.models.StudentModel"%>
+<%@page import="controllers.Student"%>
+<%@page import="com.models.Subject"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.models.Clas"%>
+<%@page import="java.util.List"%>
+<%@page import="com.db.DBAccess"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,18 +33,47 @@
         <div class="form-login">
           <h4 class="text-center text-primary">Assign a Subject to a Student</h4>
           <form method="POST" action="../Student_Sub" >
-            <h4 class="text-primary">Student:</h4>
+            <h4 class="text-primary">Subject</h4>
               
             <select name="student_exam_num" class="form-control input-sm chat-input">
-              <option value="211217328">Tando</option>
-              <option value="1234">Ku</option>
+              <%
+            DBAccess db = new DBAccess();
+            List<Subject> subject = (ArrayList<Subject>)db.getAllSubjects();
+            
+            for(Subject s: subject) {
+              if(s != null) {
+           %>
+           <option value=<%= s.getSub_name() %> ><%= s.getSub_name() %>:<span class="text-info">
+             <%= s.getSub_class() %>
+           </span></option>
+           <%
+             } else {
+            %>
+            <option value="No Class">No Subject</option>
+            <%
+              }
+            }
+           %>
             </select>
              
-            <h4 class="text-primary">Subject:</h4>
+            <h4 class="text-primary">Student</h4>
               
             <select name="sub_name" class="form-control input-sm chat-input">
-              <option value="Life Science">Life Science</option>
-              <option value="Math">Math</option>
+              <%
+                List<StudentModel> student = (ArrayList<StudentModel>)db.getAllStudents();
+                
+                for(StudentModel stu: student) {
+                  if(stu != null) {
+                %>
+                <option value="<%= stu.getExam_number()%>"><%= stu.getFirst_name() %>:<%= stu.getLast_name() %></option>
+                <%
+             } else {
+            %>
+            <option value="No Class">No Subject</option>
+                <%
+                  }
+                }
+                %>
             </select><br />
               
           <input class="btn btn-primary" type="submit" name="submit" value="Add" />

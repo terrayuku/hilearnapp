@@ -1,7 +1,7 @@
 
 package com.db;
 
-import com.models.AddSubject;
+import com.models.Subject;
 import com.models.Upload;
 import com.models.AdminMaker;
 import com.models.Chat;
@@ -186,6 +186,62 @@ public List getAllClasses() throws URISyntaxException{
           }
         }catch(SQLException sqle){
             System.out.println("No class found");
+            sqle.printStackTrace();
+        }
+        return admin;
+}
+
+public List getAllSubjects() throws URISyntaxException{
+     Connection conn = null;
+        CallableStatement call = null;
+        ResultSet res = null;
+        List admin = new ArrayList();
+        try{
+            
+          //getting connection
+          conn = this.getConnection();
+          call = conn.prepareCall("{call getAllSubjects()}");
+           
+          //executing the procedure
+          res = call.executeQuery();
+          while(res.next()){
+            Subject subject = new Subject();
+            subject.setSub_name(res.getString(1));
+            subject.setSub_class(res.getString(3));
+            
+            admin.add(subject);
+          }
+        }catch(SQLException sqle){
+            System.out.println("No subject found");
+            sqle.printStackTrace();
+        }
+        return admin;
+}
+
+
+public List getAllStudents() throws URISyntaxException{
+     Connection conn = null;
+        CallableStatement call = null;
+        ResultSet res = null;
+        List admin = new ArrayList();
+        try{
+            
+          //getting connection
+          conn = this.getConnection();
+          call = conn.prepareCall("{call getAllStudents()}");
+           
+          //executing the procedure
+          res = call.executeQuery();
+          while(res.next()){
+            StudentModel subject = new StudentModel();
+            subject.setExam_number(res.getString(1));
+            subject.setFirst_name(res.getString(2));
+            subject.setLast_name(res.getString(3));
+            
+            admin.add(subject);
+          }
+        }catch(SQLException sqle){
+            System.out.println("No subject found");
             sqle.printStackTrace();
         }
         return admin;
@@ -847,7 +903,7 @@ public boolean addFile(Upload upload) throws Exception {
         return isInserted;
     }
 
-public boolean addSubject(AddSubject subject) throws Exception{
+public boolean addSubject(Subject subject) throws Exception{
    //to connect
    Connection conn = null;
    //to call stored statements

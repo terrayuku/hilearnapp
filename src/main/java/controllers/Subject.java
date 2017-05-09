@@ -2,7 +2,6 @@
 package controllers;
 
 import com.db.DBAccess;
-import com.models.AddSubject;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +54,7 @@ public class Subject extends HttpServlet {
       if (error.isEmpty()) {
         try {
           // Call DAO to add the Student
-          AddSubject sub = new AddSubject(subj_name, subj_desc, subj_class,
+          com.models.Subject sub = new com.models.Subject(subj_name, subj_desc, subj_class,
             subj_teacher, subj_admin);
 
           // calling the student data access object
