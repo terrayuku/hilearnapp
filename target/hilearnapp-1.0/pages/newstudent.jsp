@@ -4,6 +4,10 @@
     Author     : TerraByte
 --%>
 
+<%@page import="com.models.Clas"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.db.DBAccess"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,8 +47,24 @@
                  name="password" placeholder='Default Password: to be changed' 
                  required=""/><br/>
           
-          <input type='text' class="form-control input-sm chat-input" 
-                 name="grade" placeholder='Grade' required=""/><br/>
+          <select name="grade" class="form-control input-sm chat-input">
+          <%
+            DBAccess db = new DBAccess();
+            List<Clas> clas = (ArrayList<Clas>)db.getAllClasses();
+            
+            for(Clas c: clas) {
+              if(c != null) {
+           %>
+            <option value=<%= c.getClass_name() %> ><%= c.getClass_name() %></option>
+           <%
+             } else {
+            %>
+            <option value="No Class">No Class</option>
+            <%
+              }
+            }
+           %>
+          </select><br/>
           
           <input type='text' class="form-control input-sm chat-input" 
                  name="phone" placeholder='Phone Number' required=""/><br/>

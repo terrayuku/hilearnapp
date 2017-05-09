@@ -49,7 +49,7 @@
            <%
              } else {
             %>
-            <option value="No Teacher">No Teacher</option>
+            <option value="No Class">No Class</option>
             <%
               }
             }
