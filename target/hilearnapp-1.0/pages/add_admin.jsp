@@ -30,8 +30,8 @@
     <div class="row">
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
-          <h4 class="text-center text-primary">Add School
-            <%= (HashMap)request.getAttribute("errors") != null ? (HashMap)request.getAttribute("errors") : " Successfully Added Schoool Admin "  %></h4>
+          <h4 class="text-center text-primary">Add School:</h4>
+            <h6 class="text-info"><%= (HashMap)request.getAttribute("errors") != null ? (HashMap)request.getAttribute("errors") : " Successfully Added Schoool Admin "  %></h6>
         <form method="POST" action="../AddAdmin" >
           <input type="hidden" name="id" value="<%= session.getAttribute("id") %>" />
           <input type='text' class="form-control input-sm chat-input"

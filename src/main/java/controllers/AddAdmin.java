@@ -57,7 +57,7 @@ public class AddAdmin extends HttpServlet {
         
         boolean added = dao.addAdmin(admn);
           System.out.println("");
-        if(!added){
+        if(added){
           System.out.println("Added Worked");
             request.setAttribute("successMsg","You entered " + username + "  for a user name"); 
             response.setStatus(response.SC_MOVED_TEMPORARILY);
