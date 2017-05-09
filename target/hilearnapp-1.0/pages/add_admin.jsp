@@ -41,7 +41,7 @@
           <input type='text' class="form-control input-sm chat-input"
                  name="lastname" placeholder='Last Name'/><br/> 
           <input type='text' class="form-control input-sm chat-input"
-                 name="Username" placeholder='Username'/><br/> 
+                 name="username" placeholder='Username'/><br/> 
           <input type='text' class="form-control input-sm chat-input"
                  name="password" placeholder='Password'/><br/> 
           <input type='text' class="form-control input-sm chat-input"

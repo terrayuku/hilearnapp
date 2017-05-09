@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 public class AddAdmin extends HttpServlet {
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-    String disp="pages/add_addmin.jsp";
+    String disp="pages/add_admin.jsp";
     String admin_num=request.getParameter("admin_num");
     String name =request.getParameter("name");
     String lastname = request.getParameter("lastname");   
@@ -48,9 +48,8 @@ public class AddAdmin extends HttpServlet {
     if(school==null||school.trim().length()==0)
       errors.add("school not supplied");
     
-    try {
-      
-      if(errors.isEmpty()) {
+    if(errors.isEmpty()) {
+      try {
         System.out.println("No input errors");
         SchoolAdmin admn = new SchoolAdmin(admin_num, name, lastname, username, password, school);
         
@@ -71,13 +70,7 @@ public class AddAdmin extends HttpServlet {
           response.setHeader("Location", disp);
         }
         
-      } else {
-        System.out.println("Error in input");
-          request.setAttribute("error",errors);  
-          response.setStatus(response.SC_MOVED_TEMPORARILY);
-          response.setHeader("Location", disp);
-      }
-      
+           
     } catch(Exception exe) {
       
       exe.printStackTrace();
@@ -85,6 +78,14 @@ public class AddAdmin extends HttpServlet {
       dir.forward(request, response);
       
     }
+        
+      } else {
+        System.out.println("Error in input");
+          request.setAttribute("error",errors);  
+          response.setStatus(response.SC_MOVED_TEMPORARILY);
+          response.setHeader("Location", disp);
+      }
+   
   }
 
   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
