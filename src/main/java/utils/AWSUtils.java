@@ -115,7 +115,7 @@ public class AWSUtils{
   }
   
   /**
-   * to read bucket contents in the s3 hilearn bucket based on the school of the student
+   * to read bucket contents in the s3 hilearnfiles bucket based on the school of the student
    * , class, and subject.
    * @param bucketName is the bucket to be rad
    * @param key to read the content
@@ -137,6 +137,7 @@ public class AWSUtils{
       while (true) {
         line = reader.readLine();
         if (line == null) break;
+        LOGGER.log(Level.INFO, "Line: {0}", line);
       }
       
       return line;
