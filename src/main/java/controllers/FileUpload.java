@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -115,7 +116,7 @@ public class FileUpload extends HttpServlet {
                     itemFile = item;
                 }
             }
- 
+            LOGGER.log(Level.INFO, "ID, {0}", (String)session.getAttribute("id") );
             if (itemFile != null) {
               if((String)request.getParameter("class") != null &&
                   (String)request.getParameter("subject") != null &&

@@ -126,11 +126,12 @@ public class AWSUtils{
     try {
       // connecting to s3 client
       AmazonS3Client s3Client = credentials();
-      
+     
       S3Object obj = s3Client.getObject(bucketName, key);
       
       BufferedReader reader = new BufferedReader(new 
         InputStreamReader(obj.getObjectContent()));
+      
       
 //      String line = null;
 //      
