@@ -51,27 +51,32 @@ public class AddAdmin extends HttpServlet {
     try {
       
       if(errors.isEmpty()) {
-        
+        System.out.println("No input errors");
         SchoolAdmin admn = new SchoolAdmin(admin_num, name, lastname, username, password, school);
         
         DBAccess dao = new DBAccess();
         
         boolean added = dao.addAdmin(admn);
-           
+          System.out.println("");
         if(!added){
+          System.out.println("Added Worked");
             request.setAttribute("successMsg","You entered " + username + "  for a user name"); 
             response.setStatus(response.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", disp);
           
         } else {
+          System.out.println("Added Not Worked");
           request.setAttribute("successMsg","You entered " + username + "  for a user name");  
           response.setStatus(response.SC_MOVED_TEMPORARILY);
           response.setHeader("Location", disp);
         }
         
-        request.setAttribute("successMsg","You entered " + username + "  for a user name");  
-        
-      } 
+      } else {
+        System.out.println("Error in input");
+          request.setAttribute("error",errors);  
+          response.setStatus(response.SC_MOVED_TEMPORARILY);
+          response.setHeader("Location", disp);
+      }
       
     } catch(Exception exe) {
       

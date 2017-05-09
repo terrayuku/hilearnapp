@@ -4,6 +4,7 @@
     Author     : TerraByte
 --%>
 
+<%@page import="java.util.HashMap"%>
 <%@page import="com.models.Clas"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.models.Teacher"%>
@@ -30,7 +31,7 @@
       <div class="col-md-offset-5 col-md-3">
         <div class="form-login">
           <h4 class="text-center text-primary">Add School
-            <%= (String)request.getAttribute("message") != null ? (String)request.getAttribute("message") : " "  %></h4>
+            <%= (HashMap)request.getAttribute("errors") != null ? (HashMap)request.getAttribute("errors") : " Successfully Added Schoool Admin "  %></h4>
         <form method="POST" action="../AddAdmin" >
           <input type="hidden" name="id" value="<%= session.getAttribute("id") %>" />
           <input type='text' class="form-control input-sm chat-input"
