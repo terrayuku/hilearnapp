@@ -135,12 +135,17 @@ public class AWSUtils{
       String line = null;
       
       while (true) {
+        // continue reading as long end of file not reached
+        if(reader.readLine() == null)
+          break;
+        // store to line whatever is readed from reader except null
         line = reader.readLine();
+        // check for line not null
         if (line == null) break;
       }
-      
+      // log line value for debugging
       LOGGER.log(Level.INFO, "Line: {0}", line);
-      
+      // return line
       return line;
       
     } catch(AmazonS3Exception as3e) {
