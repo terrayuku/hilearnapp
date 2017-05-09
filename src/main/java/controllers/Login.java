@@ -56,7 +56,13 @@ public class Login extends HttpServlet {
           session.setAttribute("id", comeIn.toArray()[0]);
           session.setAttribute("username", comeIn.toArray()[1]);
           String pageTo = null;
-          if (comeIn.toArray()[2].toString().equalsIgnoreCase("STUDENT")) {  
+          if (comeIn.toArray()[2].toString().equalsIgnoreCase("SYS_ADMIN")) {  
+            
+            pageTo = "pages/add_admin.jsp";
+            response.setStatus(response.SC_MOVED_TEMPORARILY);
+            response.setHeader("Location", pageTo);
+                      
+          } else if (comeIn.toArray()[2].toString().equalsIgnoreCase("STUDENT")) {  
             
             pageTo = "pages/student_subjects.jsp";
             response.setStatus(response.SC_MOVED_TEMPORARILY);
