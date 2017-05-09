@@ -64,7 +64,7 @@ public class AWSUtils{
           String subject, // subject to which to upload
           String fileName, // name of the file 
           String teacher_id // teacher id
-  ) { 
+  ) throws IOException { 
     // create credentials
     // BasicAWSCredentials credentials = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRETE_KEY);
     
@@ -92,14 +92,8 @@ public class AWSUtils{
       
       LOGGER.log(Level.INFO, "ERR_CLIENT_EXCEPTION{0}", ace.getMessage());
       
-    } catch (IOException ex) {
-      
-      java.util.logging.Logger.getLogger(AWSUtils.class.getName()).log(Level.SEVERE, null, ex);
-      
-    } catch (Exception ex) {
-      Logger.getLogger(AWSUtils.class.getName()).log(Level.SEVERE, null, ex);
-    }
- 
+    } 
+    
     // unsuccessful upload
     return false;
   }
