@@ -95,7 +95,7 @@ public class AWSUtils{
     } 
     
     // unsuccessful upload
-    return false;
+    return true;
   }
   
   /**
