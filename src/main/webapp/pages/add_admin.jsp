@@ -4,6 +4,7 @@
     Author     : TerraByte
 --%>
 
+<%@page import="com.models.SchoolAdmin"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.models.Clas"%>
 <%@page import="java.util.ArrayList"%>
@@ -31,17 +32,17 @@
     <div class="row">
   <%
     DBAccess db = new DBAccess();
-    ArrayList admins = (ArrayList)db.getAllAdmins();
-      
+    ArrayList<SchoolAdmin> admins = (ArrayList<SchoolAdmin>)db.getAllAdmins();
+    
     if(!admins.isEmpty()) {
-      for(int i = 0; i < admins.size(); i++) {
+      for(SchoolAdmin ad: admins) {
   %>
   	<!-- Student Subject -->
-      <!--<a href="teacher_subject.jsp?class=<%= admins.get(i) %>">-->
+      <!--<a href="teacher_subject.jsp?class=">-->
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box">
             <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
-              <h3><%= admins.get(i) %></h3>
+              <h3><%= ad.getSchool() %></h3>:<h5 class="text-info"><%= ad.getSchool() %></h5>
           </div>
         </div>
       <!--</a>-->
