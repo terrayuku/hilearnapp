@@ -47,6 +47,9 @@
                  name="password" placeholder='Default Password: to be changed' 
                  required=""/><br/>
           
+          <input type='text' class="form-control input-sm chat-input" 
+                 name="phone" placeholder='Phone Number' required=""/><br/>
+          
           <select name="grade" class="form-control input-sm chat-input">
           <%
             DBAccess db = new DBAccess();
@@ -65,9 +68,6 @@
             }
            %>
           </select><br/>
-          
-          <input type='text' class="form-control input-sm chat-input" 
-                 name="phone" placeholder='Phone Number' required=""/><br/>
           
           <input class="btn btn-primary" type="submit" name="submit" 
                  value="Add Student" />
