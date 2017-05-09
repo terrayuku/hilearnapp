@@ -41,8 +41,9 @@
       <!--<a href="teacher_subject.jsp?class=">-->
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box">
-            <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
-              <h3><%= ad.getSchool() %></h3>:<h5 class="text-info"><%= ad.getName() %></h5>
+            <i class="glyphicon glyphicon-user fa-4x text-primary sr-icons"></i>
+              <h3><%= ad.getSchool() %></h3>
+              <h5 class="text-info"><%= ad.getName() %></h5>
           </div>
         </div>
       <!--</a>-->
