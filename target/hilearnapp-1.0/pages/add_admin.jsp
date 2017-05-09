@@ -26,6 +26,46 @@
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
+    
+ <section class="container">
+    <div class="row">
+  <%
+    DBAccess db = new DBAccess();
+    ArrayList admins = (ArrayList)db.getAllAdmins();
+      
+    if(!admins.isEmpty()) {
+      for(int i = 0; i < admins.size(); i++) {
+        if(admins.get(i).equals(admins.get(i + 1))) {
+          admins.remove(admins.get(i + 1));
+        }
+  %>
+  	<!-- Student Subject -->
+      <!--<a href="teacher_subject.jsp?class=<%= admins.get(i) %>">-->
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box">
+            <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
+              <h3><%= admins.get(i) %></h3>
+          </div>
+        </div>
+      <!--</a>-->
+  <%
+      }
+    } else {
+      session.setAttribute("subject", "No Schools");
+  %>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box">
+            <i class="glyphicon glyphicon-blackboard fa-4x text-primary sr-icons"></i>
+              <h3>No Schools</h3>
+              <p class="text-faded">Please contact a school admin to add them on the platform.</p>
+          </div>
+        </div>
+    </div>
+  
+  <%
+    }
+   %>
+ </section>
 <section class="container">
     <div class="row">
       <div class="col-md-offset-5 col-md-3">
