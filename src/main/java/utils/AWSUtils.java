@@ -137,8 +137,9 @@ public class AWSUtils{
       while (true) {
         line = reader.readLine();
         if (line == null) break;
-        LOGGER.log(Level.INFO, "Line: {0}", line);
       }
+      
+      LOGGER.log(Level.INFO, "Line: {0}", line);
       
       return line;
       
