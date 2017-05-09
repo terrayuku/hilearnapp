@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
               
         DBAccess dao = new DBAccess();
         List comeIn = dao.loginCheck(username, password);
-        System.out.println("ADMIN LIST: " + comeIn.toArray()[1]);
+//        System.out.println("ADMIN LIST: " + comeIn.toArray()[1]);
            
         if(comeIn.isEmpty()){
           

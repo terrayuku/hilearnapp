@@ -26,6 +26,7 @@
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
+              <%= request.getParameter("errors") != null ? "Good" : "Bad" %>
               <form method="POST" action="../Login">
                 <h4>Login to Continue</h4>
                       <input type="text" name="username" 
