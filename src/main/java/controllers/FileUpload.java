@@ -111,6 +111,7 @@ public class FileUpload extends HttpServlet {
             }
             LOGGER.log(Level.INFO, "ID, {0}", (String)session.getAttribute("id") );
             if (itemFile != null) {
+              
               if((String)session.getAttribute("class") != null &&
                   (String)session.getAttribute("subject") != null &&
                   (String)session.getAttribute("id") != null ) {
@@ -124,6 +125,7 @@ public class FileUpload extends HttpServlet {
                     (String)session.getAttribute("id") // teacher id
                     ); 
                   System.out.println("isUploaded: " + isUploaded);
+                  
                   if(isUploaded) {
                      // save the path to the database to be used to download the uploaded file
                     DBAccess db = new DBAccess();
@@ -172,7 +174,10 @@ public class FileUpload extends HttpServlet {
         } catch (Exception ex) {
             System.err.print("ERR: " + ex.getMessage());
         }
-        LOGGER.info(uuidValue + ":Upload done");
+        LOGGER.log(Level.INFO, "{0}:Upload done", uuidValue);
+        response.setHeader("Location", "pages/fileUpload.jsp?class="+
+          (String)session.getAttribute("subject") + "&subject=" +
+          (String)session.getAttribute("subject"));
     }
 }
 
