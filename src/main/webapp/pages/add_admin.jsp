@@ -35,9 +35,6 @@
       
     if(!admins.isEmpty()) {
       for(int i = 0; i < admins.size(); i++) {
-        if(admins.get(i).equals(admins.get(i + 1))) {
-          admins.remove(admins.get(i + 1));
-        }
   %>
   	<!-- Student Subject -->
       <!--<a href="teacher_subject.jsp?class=<%= admins.get(i) %>">-->
