@@ -10,6 +10,7 @@ import com.models.ClassTeacher;
 import com.models.Comment;
 import com.models.Comments;
 import com.models.Register;
+import com.models.SchoolAdmin;
 import com.models.SchoolAdminModel;
 import com.models.SchoolClass;
 import com.models.StudentModel;
@@ -110,15 +111,21 @@ public List getAllAdmins() throws URISyntaxException{
             //auto commint false
 //            conn.setAutoCommit(false);
             //calling a stored procedure createComment
-            call = conn.prepareCall("{call getAllIjAdmins()}");
+            call = conn.prepareCall("{call getAllAdmins()}");
            
             
             //executing the procedure
             res = call.executeQuery();
             while(res.next()){
-                admin.add(res.getString(1));
-                admin.add(res.getString(2));
-                admin.add(res.getString(3));
+              SchoolAdmin admn = new 
+                SchoolAdmin(res.getString(1),
+                 res.getString(2),
+                 res.getString(3),
+                 res.getString(4),
+                 res.getString(5),
+                 res.getString(6)                        
+              );
+                admin.add(admn);
             }
         }catch(SQLException sqle){
             System.out.println("Admin Not Found!");
@@ -506,6 +513,47 @@ public boolean addComment(Comment comment) throws Exception{
         }else{
             conn.rollback();
             System.out.println("Error occured while addig a studnet.");
+        }
+        
+   }catch(Exception exe){
+       System.err.println("Error While Adding Student");
+       exe.printStackTrace();
+   }
+   
+   return isAdded;
+}
+
+public boolean addAdmin(SchoolAdmin admin) throws Exception{
+   //to connect
+   Connection conn = null;
+   //to call stored statements
+   CallableStatement call = null;
+   boolean isAdded = false;
+   
+   try{
+   
+        //connecting to db
+        conn = this.getConnection();
+        //auto commit false
+        conn.setAutoCommit(false);
+        //calling stored statements
+        call = conn.prepareCall("{call addAdmin(?, ?, ?, ?, ?, ?)}");
+        //setting the parameters
+        call.setString(1, admin.getAdmin_num());
+        call.setString(2, admin.getName());
+        call.setString(3, admin.getLastname());
+        call.setString(4, admin.getUsername());
+        call.setString(5, admin.getPassword());
+        call.setString(6, admin.getSchool());
+        //ex
+        int status = call.executeUpdate();
+        
+        isAdded = status > 0;
+        if(isAdded){
+            conn.commit(); // persisting data
+        }else{
+            conn.rollback();
+            System.out.println("Error occured while addig a admin.");
         }
         
    }catch(Exception exe){
