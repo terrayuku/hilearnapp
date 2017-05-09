@@ -118,15 +118,15 @@ public class FileUpload extends HttpServlet {
             }
             LOGGER.log(Level.INFO, "ID, {0}", (String)session.getAttribute("id") );
             if (itemFile != null) {
-              if((String)request.getParameter("class") != null &&
-                  (String)request.getParameter("subject") != null &&
+              if((String)session.getAttribute("class") != null &&
+                  (String)session.getAttribute("subject") != null &&
                   (String)session.getAttribute("id") != null ) {
                 
                   AWSUtils awsS3 = new AWSUtils();
                   boolean isUploaded = awsS3.upload2S3(itemFile, // content
                     S3_BUCKET_NAME,  // bucket name
-                    (String)request.getParameter("class"), // class folder 
-                    (String)request.getParameter("subject"), // subject folder for the class
+                    (String)session.getAttribute("class"), // class folder 
+                    (String)session.getAttribute("subject"), // subject folder for the class
                     itemFile.getName(), // file name
                     (String)session.getAttribute("id") // teacher id
                     ); 
@@ -156,6 +156,9 @@ public class FileUpload extends HttpServlet {
  
             } else {
                 System.err.print("ERR: " + "No Upload file");
+                response.setHeader("Location", "pages/fileUpload.jsp?class="+
+                            request.getParameter("class") + "&subject=" +
+                            request.getParameter("subject"));
             }
  
         } catch (Exception ex) {
