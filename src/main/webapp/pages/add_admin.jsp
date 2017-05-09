@@ -21,7 +21,7 @@
 	<!-- Nav Bar -->
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid bg-dark">
-          <jsp:include page="navigation.jsp?title=New Subject&back=admin.jsp" />
+          <jsp:include page="navigation.jsp?title=New School&back=admin.jsp" />
         </div>
         <!-- /.container-fluid -->
     </nav> <!-- End Nav Bar -->
@@ -31,7 +31,7 @@
         <div class="form-login">
           <h4 class="text-center text-primary">Add School
             <%= (String)request.getAttribute("message") != null ? (String)request.getAttribute("message") : " "  %></h4>
-        <form method="POST" action="../Subject" >
+        <form method="POST" action="../SchoolAdmin" >
           <input type="hidden" name="id" value="<%= session.getAttribute("id") %>" />
           <input type='text' class="form-control input-sm chat-input"
                  name="admin_num"	placeholder='Admin Number'/><br/>
