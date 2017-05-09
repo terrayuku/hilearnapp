@@ -139,7 +139,8 @@ public class AWSUtils{
         if(reader.readLine() == null)
           break;
         // store to line whatever is readed from reader except null
-        line = reader.readLine();
+        else
+          line = reader.readLine();
         // check for line not null
         if (line == null) break;
       }
