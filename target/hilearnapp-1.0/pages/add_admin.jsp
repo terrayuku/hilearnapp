@@ -31,7 +31,7 @@
         <div class="form-login">
           <h4 class="text-center text-primary">Add School
             <%= (String)request.getAttribute("message") != null ? (String)request.getAttribute("message") : " "  %></h4>
-        <form method="POST" action="../SchoolAdmin" >
+        <form method="POST" action="../AddAdmin" >
           <input type="hidden" name="id" value="<%= session.getAttribute("id") %>" />
           <input type='text' class="form-control input-sm chat-input"
                  name="admin_num"	placeholder='Admin Number'/><br/>
