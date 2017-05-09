@@ -121,7 +121,7 @@ public class AWSUtils{
    * @param key to read the content
    * @return a the input stream of the key's content
    */
-  public String readBucket(String bucketName, String key) {
+  public BufferedReader readBucket(String bucketName, String key) {
     
     try {
       // connecting to s3 client
@@ -132,27 +132,25 @@ public class AWSUtils{
       BufferedReader reader = new BufferedReader(new 
         InputStreamReader(obj.getObjectContent()));
       
-      String line = null;
-      
-      while (true) {
-        // continue reading as long end of file not reached
-        if(reader.readLine() == null)
-          break;
-        // store to line whatever is readed from reader except null
-        else
-          line = reader.readLine();
-        // check for line not null
-        if (line == null) break;
-      }
-      // log line value for debugging
-      LOGGER.log(Level.INFO, "Line: {0}", line);
+//      String line = null;
+//      
+//      while (true) {
+//        // continue reading as long end of file not reached
+//        if(reader.readLine() == null)
+//          break;
+//        // store to line whatever is readed from reader except null
+//        else
+//          line = reader.readLine();
+//        // check for line not null
+//        if (line == null) break;
+//      }
+//      // log line value for debugging
+//      LOGGER.log(Level.INFO, "Line: {0}", line);
       // return line
-      return line;
+      return reader;
       
     } catch(AmazonS3Exception as3e) {
       LOGGER.log(Level.INFO, "AMAZON_S3_CLIENTERR: {0}", as3e.getMessage());
-    } catch (IOException ex) {
-      LOGGER.log(Level.SEVERE, "READLINE_ERR", ex.getMessage());
     }
     return null;
   }

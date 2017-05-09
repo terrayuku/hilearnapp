@@ -35,11 +35,11 @@
                 <h4>Choose a file to download</h4>
                 <%
                   AWSUtils utils = new AWSUtils();
-                  String line = utils.readBucket("hilearnfiles", "Bursary.pdf");
+                  BufferedReader line = utils.readBucket("hilearnfiles", "Bursary.pdf");
                   
                   if(line != null) {
                   %>
-                  <%= line %>
+                  <%= line.readLine() %>
                   
                   <%
                     } else {
