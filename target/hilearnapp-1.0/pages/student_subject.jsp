@@ -34,7 +34,7 @@
           <h4 class="text-center text-primary">Assign a Subject to a Student</h4>
           <form method="POST" action="../Student_Sub" >
             <h4 class="text-primary">Subject</h4>
-              
+            
             <select name="sub_name" class="form-control input-sm chat-input">
               <%
             DBAccess db = new DBAccess();

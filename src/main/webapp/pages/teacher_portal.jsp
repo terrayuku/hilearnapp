@@ -32,8 +32,10 @@
       
     if(!clas.isEmpty()) {
       for(int i = 0; i < clas.size(); i++) {
-        if(clas.get(i).equals(clas.get(i + 1))) {
-          clas.remove(clas.get(i + 1));
+        if(clas.size() > 2 ){
+          if(clas.get(i).equals(clas.get(i + 1))) {
+            clas.remove(clas.get(i + 1));
+          }
         }
   %>
   	<!-- Student Subject -->
