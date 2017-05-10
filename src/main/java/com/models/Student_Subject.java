@@ -12,6 +12,7 @@ package com.models;
 public class Student_Subject {
   private String student_exam_num;
   private String subject_name;
+  private String subject_class;
 
   public Student_Subject() {
   }
@@ -40,6 +41,14 @@ public class Student_Subject {
   @Override
   public String toString() {
     return "Student_Subject{" + "student_exam_num=" + student_exam_num + ", subject_name=" + subject_name + '}';
+  }
+
+  public String getSubject_class() {
+    return subject_class;
+  }
+
+  public void setSubject_class(String subject_class) {
+    this.subject_class = subject_class;
   }
   
 }

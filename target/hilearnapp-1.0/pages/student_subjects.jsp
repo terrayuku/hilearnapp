@@ -4,6 +4,7 @@
     Author     : TerraByte
 --%>
 
+<%@page import="com.models.Student_Subject"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.db.DBAccess"%>
@@ -28,19 +29,20 @@
   <%
     DBAccess db = new DBAccess();
     System.out.println((String)session.getAttribute("id"));
-    ArrayList student_subject = (ArrayList)db.getStudent_Subject((String)session.getAttribute("id"));
+    ArrayList<Student_Subject> student_subject = (ArrayList<Student_Subject>)db.getStudent_Subject((String)session.getAttribute("id"));
       
     if(!student_subject.isEmpty()) {
       System.out.println(student_subject);
-      for(int i = 0; i < student_subject.size(); i++) {
+      for(Student_Subject stu: student_subject) {
         
   %>
 
-      <a href="contents.jsp?subject=<%= student_subject.get(i) %>" >
+      <a href="contents.jsp?subject=<%= stu.getSubject_name() %>" >
           <div class="col-lg-3 col-md-6">
             <div class="service-box">
             <i class="glyphicon glyphicon-book fa-4x text-center sr-icons"></i>
-              <h3><%= student_subject.get(i) %></h3>
+              <h3><%= stu.getSubject_name() %>:<%= stu.getSubject_class() %></h3>
+              
             </div>
           </div>
       </a>
