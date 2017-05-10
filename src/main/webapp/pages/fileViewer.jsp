@@ -35,7 +35,7 @@
                 <h4>Choose a file to download</h4>
                 <%
                   AWSUtils utils = new AWSUtils();
-                  BufferedReader reader = utils.readBucket("hilearnfiles", "ReadMe.txt");
+                  BufferedReader reader = utils.readBucket("hilearnfiles", "ReadMe.txt"); //file
                   String line;
                   while((line = reader.readLine()) != null) {
                   %>
