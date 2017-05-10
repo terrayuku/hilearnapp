@@ -35,7 +35,7 @@
           <form method="POST" action="../Student_Sub" >
             <h4 class="text-primary">Subject</h4>
               
-            <select name="student_exam_num" class="form-control input-sm chat-input">
+            <select name="sub_name" class="form-control input-sm chat-input">
               <%
             DBAccess db = new DBAccess();
             List<Subject> subject = (ArrayList<Subject>)db.getAllSubjects();
@@ -58,7 +58,7 @@
              
             <h4 class="text-primary">Student</h4>
               
-            <select name="sub_name" class="form-control input-sm chat-input">
+            <select name="student_exam_num" class="form-control input-sm chat-input">
               <%
                 List<StudentModel> student = (ArrayList<StudentModel>)db.getAllStudents();
                 
