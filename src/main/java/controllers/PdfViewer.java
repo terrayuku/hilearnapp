@@ -50,6 +50,7 @@ public class PdfViewer extends HttpServlet {
             
             String line = "No Content";
             while ( (line = is.readLine()) != null) 
+              
             System.out.println("Line " + line);
             // step 1
             Document document = new Document();
