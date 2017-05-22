@@ -5,17 +5,22 @@
  */
 package controllers;
 
-import com.itextpdf.text.Chunk;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
 import utils.AWSUtils;
 
 /**
@@ -40,25 +45,28 @@ public class PdfViewer extends HttpServlet {
           
            
             AWSUtils utils = new AWSUtils();
-            InputStream reader =  (InputStream)utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
-            
-            OutputStream out = null;
+//            InputStream reader =  (InputStream)utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
+            BufferedReader is = utils.readBucket("hilearnfiles", "Bursary.pdf");
+//            String text = IOUtils.toString(is, StandardCharsets.UTF_8);
+            OutputStream out = new FileOutputStream("text.pdf");
             byte[] buffer = new byte[1024];
-            int line;
-            while ( (line = reader.read()) != -1) {
+            String line = "No Content";
+            while ( is.readLine() != null) {
+              line = is.readLine();
 //              System.out.println("Line " + buffer);
-              out.write(line);
+//              out.write();
             }
             
             // step 1
             Document document = new Document();
             // step 2
 //            PdfWriter.getInstance(document, new FileOutputStream("c:/sample.pdf"));
-            PdfWriter.getInstance(document, out);
+            PdfWriter.getInstance(document, response.getOutputStream());
             // step 3
             document.open();
             // step 4
-            document.add(new Chunk(""));
+            document.add(new Paragraph(line));
+            document.newPage();
 //            document.add(new Paragraph(new Date().toString()));
             // step 5
             document.close();
