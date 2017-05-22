@@ -49,10 +49,7 @@ public class PdfViewer extends HttpServlet {
             BufferedReader is = utils.readBucket("hilearnfiles", "Bursary.pdf");
             
             String line = "No Content";
-            while ( is.readLine() != null) {
-              if(is.readLine() == null ) break;
-              line = is.readLine();
-            }
+            while ( (line = is.readLine()) != null) 
             System.out.println("Line " + line);
             // step 1
             Document document = new Document();
