@@ -4,15 +4,14 @@ import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import com.db.DBAccess;
-import com.models.Upload;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -105,7 +104,7 @@ public class AWSUtils{
    * @param key to read the content
    * @return a the input stream of the key's content
    */
-  public BufferedReader readBucket(String bucketName, String key) {
+  public InputStream readBucket(String bucketName, String key) {
     
     try {
       // connecting to s3 client
@@ -113,8 +112,12 @@ public class AWSUtils{
      
       S3Object obj = s3Client.getObject(bucketName, key);
       
-      BufferedReader reader = new BufferedReader(new 
-        InputStreamReader(obj.getObjectContent()));
+      InputStream reader = new BufferedInputStream(obj.getObjectContent()) {
+        @Override
+        public int read() throws IOException {
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+      };
       
       
 //      String line = null;

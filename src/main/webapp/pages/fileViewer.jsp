@@ -4,6 +4,8 @@
     Author     : zodiac
 --%>
 
+<%@page import="java.io.InputStream"%>
+<%@page import="com.itextpdf.text.pdf.XfaXpathConstructor.XdpPackage.Pdf"%>
 <%@page import="utils.AWSUtils"%>
 <%@page import="java.util.ListIterator"%>
 <%@page import="java.io.InputStreamReader"%>
@@ -13,6 +15,8 @@
 <%@page import="com.amazonaws.services.s3.AmazonS3"%>
 <%@page import="com.amazonaws.auth.BasicAWSCredentials"%>
 <%@page import="com.amazonaws.services.s3.AmazonS3Client"%>
+<%@page import="com.itextpdf.text.pdf.PdfReader"%>
+<%@page import="com.itextpdf.text.pdf.parser.PdfTextExtractor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,11 +39,12 @@
                 <h4>Choose a file to download</h4>
                 <%
                   AWSUtils utils = new AWSUtils();
-                  BufferedReader reader = utils.readBucket("hilearnfiles", "ReadMe.txt"); //file
-                  String line;
-                  while((line = reader.readLine()) != null) {
+                  InputStream reader = utils.readBucket("hilearnfiles", "ReadMe.txt"); //file
+                  PdfReader pdf = new PdfReader(reader);
+                  
+                  String headText = PdfTextExtractor.getTextFromPage(pdf, 1);
                   %>
-                  <%= line%>
+                  <%= headText %>
                   
                   <%
                     }
