@@ -10,17 +10,13 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.io.IOUtils;
 import utils.AWSUtils;
 
 /**
@@ -47,24 +43,39 @@ public class PdfViewer extends HttpServlet {
             AWSUtils utils = new AWSUtils();
 //            InputStream reader =  (InputStream)utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
             BufferedReader is = utils.readBucket("hilearnfiles", "Bursary.pdf");
-            
             String line = "No Content";
-            while ( (line = is.readLine()) != null) 
+            while ( (line = is.readLine()) != null)
               
             System.out.println("Line " + line);
             // step 1
             Document document = new Document();
             // step 2
 //            PdfWriter.getInstance(document, new FileOutputStream("c:/sample.pdf"));
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
             PdfWriter.getInstance(document, response.getOutputStream());
             // step 3
             document.open();
             // step 4
-            document.add(new Paragraph(line));
+            document.add(new Paragraph(String.format(line, request.getMethod())));
             document.newPage();
 //            document.add(new Paragraph(new Date().toString()));
             // step 5
             document.close();
+            
+            // setting some response headers
+            response.setHeader("Expires", "0");
+            response.setHeader("Cache-Control",
+                "must-revalidate, post-check=0, pre-check=0");
+            response.setHeader("Pragma", "public");
+            // setting the content type
+            response.setContentType("application/pdf");
+            // the contentlength
+            response.setContentLength(baos.size());
+            // write ByteArrayOutputStream to the ServletOutputStream
+            OutputStream os = response.getOutputStream();
+            baos.writeTo(os);
+            os.flush();
+            os.close();
         } catch (DocumentException de) {
             throw new IOException(de.getMessage());
         }
