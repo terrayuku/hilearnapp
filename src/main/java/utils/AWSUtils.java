@@ -41,6 +41,7 @@ public class AWSUtils{
   
   private AmazonS3Client credentials() {
     // create credentials
+    System.out.println(AWS_ACCESS_KEY + AWS_SECRETE_KEY);
     BasicAWSCredentials credentials = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRETE_KEY);
     
       // create an aws client
