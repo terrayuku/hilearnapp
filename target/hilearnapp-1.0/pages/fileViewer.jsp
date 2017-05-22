@@ -39,7 +39,7 @@
                 <h4>Choose a file to download</h4>
                 <%
                   AWSUtils utils = new AWSUtils();
-                  InputStream reader = utils.readBucket("hilearnfiles", "ReadMe.txt"); //file
+                  InputStream reader = utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
                   PdfReader pdf = new PdfReader(reader);
                   
                   String headText = PdfTextExtractor.getTextFromPage(pdf, 1);
