@@ -56,7 +56,7 @@ public class PdfViewer extends HttpServlet {
 //              System.out.println("Line " + buffer);
 //              out.write();
             }
-            
+            System.out.println(line);
             // step 1
             Document document = new Document();
             // step 2
