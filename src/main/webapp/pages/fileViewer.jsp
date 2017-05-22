@@ -46,9 +46,6 @@
                   %>
                   <%= headText %>
                   
-                  <%
-                    }
-                    %>
                     <p class="text-center">No Content</p>
 <!--                <input type="file" name="uploadFile" class="form-control input-sm" />
                 </br>
