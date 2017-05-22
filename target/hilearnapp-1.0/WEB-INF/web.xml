@@ -60,6 +60,10 @@
         <servlet-name>AddAdmin</servlet-name>
         <servlet-class>controllers.AddAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PdfViewer</servlet-name>
+        <servlet-class>controllers.PdfViewer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
@@ -123,6 +127,10 @@
     <servlet-mapping>
         <servlet-name>AddAdmin</servlet-name>
         <url-pattern>/AddAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfViewer</servlet-name>
+        <url-pattern>/PdfViewer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -37,14 +37,6 @@
             <div class="form-login">
               <!--<form name="file" method="GET" action="../FileUpload" enctype="multipart/form-data">-->
                 <h4>Choose a file to download</h4>
-                <% 
-                  AWSUtils utils = new AWSUtils();
-                  InputStream reader = utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
-                  PdfReader pdf = new PdfReader(reader);
-                  
-                  String headText = PdfTextExtractor.getTextFromPage(pdf, 1);
-                  %>
-                  <%= headText %>
                   
                     <p class="text-center">No Content</p>
 <!--                <input type="file" name="uploadFile" class="form-control input-sm" />
