@@ -45,7 +45,7 @@ public class PdfViewer extends HttpServlet {
             OutputStream out = null;
             byte[] buffer = new byte[1024];
             int line;
-            while ( (line = reader.read(buffer)) != -1) {
+            while ( (line = reader.read()) != -1) {
 //              System.out.println("Line " + buffer);
               out.write(line);
             }
