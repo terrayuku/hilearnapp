@@ -31,7 +31,7 @@
             <i class="glyphicon glyphicon-file fa-4x text-center sr-icons"></i>
               
                 <% 
-                  Student_Subject stu_sub = (Student_Subject)session.getAttribute("stu");
+                  Student_Subject stu_sub = (Student_Subject)session.getAttribute("subject");
                 %>
                 <h3><%= stu_sub.getSubject_file() %></h3>
           </div>
