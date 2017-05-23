@@ -38,7 +38,7 @@
     if(!student_subject.isEmpty()) {
       // making sure that 1 subject is returned
       for(int i = 0; i <= student_subject.size(); i++){
-        if(student_subject.get(i) == student_subject.get(i + 1)){
+        if(student_subject.get(i - 1) == student_subject.get(i)){
           student_subject.remove(i);
         }
       }
