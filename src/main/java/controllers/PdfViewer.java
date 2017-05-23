@@ -53,7 +53,7 @@ public class PdfViewer extends HttpServlet {
               // store to line whatever is readed from reader except null
 //              else
 //                line = is.readLine();
-                System.out.println(line);
+//                System.out.println(line);
 //               System.out.println(line);
               // check for line not null
 //              if (line == null) break;
@@ -71,8 +71,11 @@ public class PdfViewer extends HttpServlet {
             // step 4
             if(line == null)
               document.add(new Paragraph("No Content"));
-            else
+            else {
+              System.out.println("Page Count: " + line.length());
+              document.setPageCount(line.length());
               document.add(new Paragraph(line));
+            }
 //            document.add(new Paragraph(new Date().toString()));
             // step 5
             document.close();
