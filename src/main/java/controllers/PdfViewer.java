@@ -46,10 +46,10 @@ public class PdfViewer extends HttpServlet {
             String line = "";
             while (is.readLine() != null) {
               // continue reading as long end of file not reached
-              if(is.readLine() == null)
-                break;
+//              if(is.readLine() == null)
+//                break;
               // store to line whatever is readed from reader except null
-              else
+//              else
                 line = is.readLine();
 //               System.out.println(line);
               // check for line not null
