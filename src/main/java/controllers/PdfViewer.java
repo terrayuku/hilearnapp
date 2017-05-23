@@ -46,7 +46,7 @@ public class PdfViewer extends HttpServlet {
            
             AWSUtils utils = new AWSUtils();
 //            InputStream reader =  (InputStream)utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
-            InputStream bdata = utils.readBucket("hilearnfiles", "Bursary.pdf");
+            InputStream bdata = utils.readBucket("hilearnfiles", "Notes/nodejs_tutorial.pdf");
             
             try(OutputStream output = response.getOutputStream()){   
               int n;
