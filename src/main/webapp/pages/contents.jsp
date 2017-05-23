@@ -32,7 +32,7 @@
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
-      
+<!--      
 			<a href="#">
 				<div class="col-lg-3 col-md-3">
 					<div class="service-box">
@@ -40,7 +40,7 @@
               <h3>Previous Question Papers</h3>
           </div>
 				</div>
-				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
+				<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>
 			</a>
       
 			<a href="#">
@@ -50,7 +50,7 @@
               <h3>Study Guides</h3>
           </div>
 				</div>
-				<!--<div class="col-xs-2"><span class="glyphicon glyphicon-info-sign"></span></div>-->
+				<div class="col-xs-2"><span class="glyphicon glyphicon-info-sign"></span></div>
 			</a>
       
 			<a href="#">
@@ -60,8 +60,8 @@
               <h3>Exercise & Solution</h3>
           </div>
 				</div>
-				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
-			</a>
+				<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>
+			</a>-->
       
       <a href="chatroom.jsp?subject=<%= request.getParameter("subject") %>">
 				<div class="col-lg-3 col-md-3">
