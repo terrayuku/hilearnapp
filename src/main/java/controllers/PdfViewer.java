@@ -43,6 +43,8 @@ public class PdfViewer extends HttpServlet {
             AWSUtils utils = new AWSUtils();
 //            InputStream reader =  (InputStream)utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
             BufferedReader is = utils.readBucket("hilearnfiles", "Bursary.pdf");
+            if(is != null) 
+              System.out.println("Not Null");
             String line = "";
             while (is.readLine() != null) {
               // continue reading as long end of file not reached
