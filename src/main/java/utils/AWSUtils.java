@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
@@ -103,7 +104,7 @@ public class AWSUtils{
    * @param key to read the content
    * @return a the input stream of the key's content
    */
-  public BufferedReader readBucket(String bucketName, String key) {
+  public BufferedReader readBucket(String bucketName, String key) throws UnsupportedEncodingException {
     
     try {
       // connecting to s3 client
@@ -112,7 +113,7 @@ public class AWSUtils{
       S3Object obj = s3Client.getObject(bucketName, key);
       
       BufferedReader reader = new BufferedReader(new 
-        InputStreamReader(obj.getObjectContent()));
+        InputStreamReader(obj.getObjectContent(), "UTF8"));
 //      InputStream isr = new InputStreamReader(obj.getObjectContent());
 //      InputStream is = isr.
 //      PdfReader pdf = new PdfReader(url);
