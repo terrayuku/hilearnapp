@@ -413,6 +413,40 @@ public List getStudent_Subject(String exam_num) throws URISyntaxException
     return subject;
 }
 
+public String getStudent_Class(String exam_num) throws URISyntaxException
+{
+    Connection conn = null;
+    CallableStatement call = null;
+    ResultSet res = null;
+//    List subject = new ArrayList();
+StudentModel stu = new StudentModel();
+    
+    try{
+            
+        //getting connection
+        conn = this.getConnection();
+        //auto commint false
+//      conn.setAutoCommit(false);
+        //calling a stored procedure createComment
+        call = conn.prepareCall("{call getStudent_Class(?)}");
+        //executing the procedure
+        call.setString(1, exam_num);
+        res = call.executeQuery();
+        while(res.next()){
+          System.out.println(res.getString(1));
+          
+          stu.setGrade(res.getString(1));
+//          stu.setSubject_class(res.getString(2));            
+        
+//            subject.add(stu);
+         }
+    }catch(SQLException sqle){
+        System.out.println("Subject Not Found!");
+        sqle.printStackTrace();
+    }
+    return stu.getGrade();
+}
+
 public List getTeacher_Subject(String staff_num, String clas) throws URISyntaxException{
     Connection conn = null;
     CallableStatement call = null;

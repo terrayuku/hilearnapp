@@ -30,14 +30,14 @@
     DBAccess db = new DBAccess();
     System.out.println((String)session.getAttribute("id"));
     ArrayList<Student_Subject> student_subject = (ArrayList<Student_Subject>)db.getStudent_Subject((String)session.getAttribute("id"));
-      
+    String grade = (String)db.getStudent_Class((String)session.getAttribute("id"));
     if(!student_subject.isEmpty()) {
       System.out.println(student_subject);
       for(Student_Subject stu: student_subject) {
         
   %>
 
-      <a href="contents.jsp?subject=<%= stu.getSubject_name() %>" >
+      <a href="contents.jsp?class=<%= grade %>&subject=<%= stu.getSubject_name() %>" >
           <div class="col-lg-3 col-md-6">
             <div class="service-box">
             <i class="glyphicon glyphicon-book fa-4x text-center sr-icons"></i>
