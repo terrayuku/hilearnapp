@@ -400,11 +400,9 @@ public List getStudent_Subject(String exam_num) throws URISyntaxException
         res = call.executeQuery();
         while(res.next()){
           System.out.println(res.getString(1));
-          System.out.println(res.getString(2));
           Student_Subject stu = new Student_Subject();
           stu.setSubject_name(res.getString(1));
-          stu.setSubject_class(res.getString(2));
-            
+//          stu.setSubject_class(res.getString(2));            
         
             subject.add(stu);
          }
