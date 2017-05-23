@@ -4,15 +4,13 @@ import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import com.db.DBAccess;
-import com.models.Upload;
+import com.itextpdf.text.pdf.PdfReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -115,7 +113,9 @@ public class AWSUtils{
       
       BufferedReader reader = new BufferedReader(new 
         InputStreamReader(obj.getObjectContent()));
-      
+//      InputStream isr = new InputStreamReader(obj.getObjectContent());
+//      InputStream is = isr.
+//      PdfReader pdf = new PdfReader(url);
       
 //      String line = null;
 //      
