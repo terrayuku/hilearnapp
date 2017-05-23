@@ -4,6 +4,8 @@
     Author     : TerraByte
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.db.DBAccess"%>
 <%@page import="com.models.Student_Subject"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,20 +26,31 @@
 	<!-- Teacher Registration -->
 	<section class="container">
 		<div class="row">
+       <%
+    DBAccess db = new DBAccess();
+//    System.out.println((String)session.getAttribute("id"));
+    // get student grade
+    String grade = (String)db.getStudent_Class((String)session.getAttribute("id"));
+    // get student subject in their grade
+    ArrayList<Student_Subject> student_subject = (ArrayList<Student_Subject>)db.getStudent_Subject(grade);
+    
+    
+    if(!student_subject.isEmpty()) {
       
+      System.out.println(student_subject);
+      for(Student_Subject stu: student_subject) {
+  %>
 			<a href="#">
 				<div class="col-lg-3 col-md-3">
           <div class="service-box">
             <i class="glyphicon glyphicon-file fa-4x text-center sr-icons"></i>
-              
-                <% 
-                  Student_Subject stu_sub = (Student_Subject)session.getAttribute("subject");
-                %>
-                <h3><%= stu_sub.getSubject_file() %></h3>
+            <h3><%= stu.getSubject_file() %></h3>
           </div>
 				</div>
-				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
+         <%
+            }
+          %>
     </div>	
 	</section>
 	<section class="bg-dark">
