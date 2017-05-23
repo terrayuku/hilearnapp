@@ -51,9 +51,9 @@ public class PdfViewer extends HttpServlet {
               // store to line whatever is readed from reader except null
               else
                 line = is.readLine();
-               System.out.println(line);
+//               System.out.println(line);
               // check for line not null
-              if (line == null) break;
+//              if (line == null) break;
             }
             
             System.out.println("*********************************************\n Line " + line);
