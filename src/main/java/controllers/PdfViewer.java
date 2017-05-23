@@ -9,9 +9,9 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
@@ -46,10 +46,14 @@ public class PdfViewer extends HttpServlet {
            
             AWSUtils utils = new AWSUtils();
 //            InputStream reader =  (InputStream)utils.readBucket("hilearnfiles", "Bursary.pdf"); //file
-            byte[] bdata = utils.readBucket("hilearnfiles", "Bursary.pdf");
+            InputStream bdata = utils.readBucket("hilearnfiles", "Bursary.pdf");
             
-            try(OutputStream output = response.getOutputStream()){      
-              output.write(bdata);              
+            try(OutputStream output = response.getOutputStream()){   
+              int n;
+              while( (n = bdata.read()) != -1){
+               output.write(n); 
+              }              
+              System.out.println(output);
             } 
 //            if(is != null) 
 //              System.out.println("Not Null");
