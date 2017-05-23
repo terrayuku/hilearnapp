@@ -380,7 +380,7 @@ public List getSubject(String sub_name) throws URISyntaxException{
     return subject;
 }
 
-public List getStudent_Subject(String exam_num) throws URISyntaxException
+public List getStudent_Subject(String grade) throws URISyntaxException
 {
     Connection conn = null;
     CallableStatement call = null;
@@ -396,12 +396,14 @@ public List getStudent_Subject(String exam_num) throws URISyntaxException
         //calling a stored procedure createComment
         call = conn.prepareCall("{call getStudent_Subject(?)}");
         //executing the procedure
-        call.setString(1, exam_num);
+        call.setString(1, grade);
         res = call.executeQuery();
         while(res.next()){
           System.out.println(res.getString(1));
           Student_Subject stu = new Student_Subject();
-          stu.setSubject_name(res.getString(1));
+          stu.setSubject_file(res.getString(1));
+          stu.setSubject_name(res.getString(2));
+          stu.setSubject_class(res.getString(3));
 //          stu.setSubject_class(res.getString(2));            
         
             subject.add(stu);

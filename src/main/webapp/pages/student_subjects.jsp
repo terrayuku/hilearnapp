@@ -28,9 +28,13 @@
     <div class="row">
   <%
     DBAccess db = new DBAccess();
-    System.out.println((String)session.getAttribute("id"));
-    ArrayList<Student_Subject> student_subject = (ArrayList<Student_Subject>)db.getStudent_Subject((String)session.getAttribute("id"));
+//    System.out.println((String)session.getAttribute("id"));
+    // get student grade
     String grade = (String)db.getStudent_Class((String)session.getAttribute("id"));
+    // get student subject in their grade
+    ArrayList<Student_Subject> student_subject = (ArrayList<Student_Subject>)db.getStudent_Subject(grade);
+    
+    
     if(!student_subject.isEmpty()) {
       System.out.println(student_subject);
       for(Student_Subject stu: student_subject) {

@@ -13,6 +13,7 @@ public class Student_Subject {
   private String student_exam_num;
   private String subject_name;
   private String subject_class;
+  private String subject_file;
 
   public Student_Subject() {
   }
@@ -49,6 +50,14 @@ public class Student_Subject {
 
   public void setSubject_class(String subject_class) {
     this.subject_class = subject_class;
+  }
+
+  public String getSubject_file() {
+    return subject_file;
+  }
+
+  public void setSubject_file(String subject_file) {
+    this.subject_file = subject_file;
   }
   
 }
