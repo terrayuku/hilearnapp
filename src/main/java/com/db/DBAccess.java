@@ -409,11 +409,11 @@ public List getStudent_Subject(String grade) throws URISyntaxException
             subject.add(stu);
          }
         
-        for(int i = 0; i < subject.size(); i++){
-          if(subject.get(i).equals(subject.get(i + 1))) {
-            subject.remove(i + 1);
-          }
-        }
+//        for(int i = 0; i < subject.size(); i++){
+//          if(subject.get(i).equals(subject.get(i + 1))) {
+//            subject.remove(i + 1);
+//          }
+//        }
     }catch(SQLException sqle){
         System.out.println("Subject Not Found!");
         sqle.printStackTrace();
