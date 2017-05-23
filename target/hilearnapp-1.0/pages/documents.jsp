@@ -40,7 +40,7 @@
       System.out.println(student_subject);
       for(Student_Subject stu: student_subject) {
   %>
-			<a href="#">
+			<a href="PdfViewer?class=<%= stu.getSubject_class() %>&subject=<%= stu.getSubject_name() %>&fileName=<%= stu.getSubject_file() %>">
 				<div class="col-lg-3 col-md-3">
           <div class="service-box">
             <i class="glyphicon glyphicon-file fa-4x text-center sr-icons"></i>
