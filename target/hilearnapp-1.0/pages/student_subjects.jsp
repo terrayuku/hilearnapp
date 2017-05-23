@@ -39,6 +39,7 @@
       
       System.out.println(student_subject);
       for(Student_Subject stu: student_subject) {
+        
   %>
 
       <a href="contents.jsp?class=<%= grade %>&subject=<%= stu.getSubject_name() %>" >

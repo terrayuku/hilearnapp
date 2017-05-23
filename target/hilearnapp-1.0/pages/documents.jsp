@@ -15,7 +15,7 @@
 	<!-- Nav Bar -->
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid bg-dark">
-          <jsp:include page="navigation.jsp?title=Subject Content&back=student_subjects.jsp" />
+          <jsp:include page="navigation.jsp?title=Subject Content&back=contents.jsp" />
         </div>
         <!-- /.container-fluid -->
     </nav>
@@ -23,7 +23,7 @@
 	<!-- Teacher Registration -->
 	<section class="container">
 		<div class="row">
-      <a href="documents.jsp?id=<%= session.getAttribute("id") %>&class=<%= request.getParameter("class") %>&subject=<%= request.getParameter("subject") %>">
+			<a href="#">
 				<div class="col-lg-3 col-md-3">
           <div class="service-box">
             <i class="glyphicon glyphicon-file fa-4x text-center sr-icons"></i>

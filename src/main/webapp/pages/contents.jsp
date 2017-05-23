@@ -23,7 +23,7 @@
 	<!-- Teacher Registration -->
 	<section class="container">
 		<div class="row">
-			<a href="#">
+      <a href="documents.jsp?id=<%= session.getAttribute("id") %>&class=<%= request.getParameter("class") %>&subject=<%= request.getParameter("subject") %>">
 				<div class="col-lg-3 col-md-3">
           <div class="service-box">
             <i class="glyphicon glyphicon-file fa-4x text-center sr-icons"></i>
