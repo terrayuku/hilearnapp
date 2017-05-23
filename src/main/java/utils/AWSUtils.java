@@ -7,12 +7,12 @@ import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
-import com.itextpdf.text.pdf.PdfReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
@@ -104,7 +104,7 @@ public class AWSUtils{
    * @param key to read the content
    * @return a the input stream of the key's content
    */
-  public BufferedReader readBucket(String bucketName, String key) throws UnsupportedEncodingException {
+  public byte[] readBucket(String bucketName, String key) throws UnsupportedEncodingException, SQLException {
     
     try {
       // connecting to s3 client
@@ -112,8 +112,10 @@ public class AWSUtils{
      
       S3Object obj = s3Client.getObject(bucketName, key);
       
-      BufferedReader reader = new BufferedReader(new 
-        InputStreamReader(obj.getObjectContent(), "UTF8"));
+//      BufferedReader reader = new BufferedReader(new 
+//        InputStreamReader(obj.getObjectContent(), "UTF8"));
+      Blob blb = (Blob)obj.getObjectContent();
+      byte[] bdata = blb.getBytes(1, (int) blb.length());
 //      InputStream isr = new InputStreamReader(obj.getObjectContent());
 //      InputStream is = isr.
 //      PdfReader pdf = new PdfReader(url);
@@ -133,7 +135,7 @@ public class AWSUtils{
 //      // log line value for debugging
 //      LOGGER.log(Level.INFO, "Line: {0}", line);
       // return line
-      return reader;
+      return bdata;
       
     } catch(AmazonS3Exception as3e) {
       LOGGER.log(Level.INFO, "AMAZON_S3_CLIENTERR: {0}", as3e.getMessage());
