@@ -66,9 +66,10 @@ public class PdfViewer extends HttpServlet {
             // step 3
             document.open();
             // step 4
-            document.setPageCount(8);
-            document.newPage();
-            document.add(new Paragraph(line));
+            if(line == null)
+              document.add(new Paragraph("No Content"));
+            else
+              document.add(new Paragraph(line));
 //            document.add(new Paragraph(new Date().toString()));
             // step 5
             document.close();
