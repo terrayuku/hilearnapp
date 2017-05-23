@@ -39,7 +39,7 @@
       
       System.out.println(student_subject);
       for(Student_Subject stu: student_subject) {
-        
+        session.setAttribute("subject", stu);
   %>
 
       <a href="contents.jsp?class=<%= grade %>&subject=<%= stu.getSubject_name() %>" >

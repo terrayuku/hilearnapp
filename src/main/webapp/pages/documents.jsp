@@ -4,6 +4,7 @@
     Author     : TerraByte
 --%>
 
+<%@page import="com.models.Student_Subject"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,55 +24,20 @@
 	<!-- Teacher Registration -->
 	<section class="container">
 		<div class="row">
+      
 			<a href="#">
 				<div class="col-lg-3 col-md-3">
           <div class="service-box">
             <i class="glyphicon glyphicon-file fa-4x text-center sr-icons"></i>
-              <h3>Notes</h3>
+              
+                <% 
+                  Student_Subject stu_sub = (Student_Subject)session.getAttribute("stu");
+                %>
+                <h3><%= stu_sub.getSubject_file() %></h3>
           </div>
 				</div>
 				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
 			</a>
-<!--      
-			<a href="#">
-				<div class="col-lg-3 col-md-3">
-					<div class="service-box">
-            <i class="glyphicon glyphicon-folder-open fa-4x text-center sr-icons"></i>
-              <h3>Previous Question Papers</h3>
-          </div>
-				</div>
-				<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>
-			</a>
-      
-			<a href="#">
-				<div class="col-lg-3 col-md-3">
-					<div class="service-box">
-            <i class="glyphicon glyphicon-book fa-4x text-center sr-icons"></i>
-              <h3>Study Guides</h3>
-          </div>
-				</div>
-				<div class="col-xs-2"><span class="glyphicon glyphicon-info-sign"></span></div>
-			</a>
-      
-			<a href="#">
-				<div class="col-lg-3 col-md-3">
-					<div class="service-box">
-            <i class="glyphicon glyphicon-share fa-4x text-center sr-icons"></i>
-              <h3>Exercise & Solution</h3>
-          </div>
-				</div>
-				<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>
-			</a>-->
-      
-      <a href="chatroom.jsp?subject=<%= request.getParameter("subject") %>">
-				<div class="col-lg-3 col-md-3">
-					<div class="service-box">
-            <i class="glyphicon glyphicon-comment fa-4x text-center sr-icons"></i>
-              <h3>Peer Help</h3>
-          </div>
-				</div>
-				<!--<div class="col-xs-3"><span class="glyphicon glyphicon-info-sign"></span></div>-->
-			</a>  
     </div>	
 	</section>
 	<section class="bg-dark">
