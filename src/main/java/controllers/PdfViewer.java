@@ -73,7 +73,7 @@ public class PdfViewer extends HttpServlet {
               document.add(new Paragraph("No Content"));
             else {
               System.out.println("Page Count: " + line.length());
-              document.setPageCount(line.length());
+              document.setPageCount(2);
               document.add(new Paragraph(line));
             }
 //            document.add(new Paragraph(new Date().toString()));
