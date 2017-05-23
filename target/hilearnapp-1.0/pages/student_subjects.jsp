@@ -41,7 +41,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="service-box">
             <i class="glyphicon glyphicon-book fa-4x text-center sr-icons"></i>
-              <h3><%= stu.getSubject_name() %>:<%= stu.getSubject_class() %></h3>
+              <h3><%= stu.getSubject_name() %></h3>
               
             </div>
           </div>
